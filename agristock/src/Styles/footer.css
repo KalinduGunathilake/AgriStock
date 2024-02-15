@@ -1,0 +1,38 @@
+.footerCont {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--homebody-color);
+}
+
+.footerItem {
+    position: relative;
+    width: 25%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footerLogoCont {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.footerLogoDiv {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+
+}
+.footerLogo {
+    font-family: 'Lobster', sans-serif;
+    font-size: 2.5rem;
+
+    /* color: white; */
+}
