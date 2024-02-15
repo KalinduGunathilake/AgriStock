@@ -1,10 +1,11 @@
 import React from "react";
 import Navbar from "./Components/navbar";
+import Cropinfor from "./Pages/Cropinfor";
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <h1>Hello World</h1>
+      <Cropinfor/>
     </div>
   );
 }
