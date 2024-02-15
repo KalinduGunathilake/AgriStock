@@ -6,9 +6,10 @@ const Navbar = () => {
         <nav>
             <div className='logo'>AgriStock</div>
             <ul className='navbar'>
-                <li className='active'><a href="#" >Home</a></li>
+                <li className='active'><a href="/" >Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#">Contact</a></li> 
+                <li><a href="/login">Login</a></li> 
             </ul>
         </nav>
     </div>
