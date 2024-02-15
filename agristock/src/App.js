@@ -1,11 +1,9 @@
 import React from "react";
-import Navbar from "./Components/navbar";
-import Cropinfor from "./Pages/Cropinfor";
+import Home from "./Pages/home";
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Cropinfor/>
+      <Home />
     </div>
   );
 }
