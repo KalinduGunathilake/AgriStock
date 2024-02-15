@@ -1,0 +1,32 @@
+
+
+.heroCont {
+    height: 100svh;
+    width: 100%;
+    background-color: var(--homebody-color);
+    padding: 5svh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    
+
+}
+
+.heroImgCont {
+    position: relative;
+    display: block;
+    width: 65%;
+    /* border: 3px solid white; */
+}
+.heroImg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.heroContext {
+    position: relative;
+    width: 35%;
+    margin-left: 50px;
+}

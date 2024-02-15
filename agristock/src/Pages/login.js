@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../Styles/login.css'
+import Navbar from '../Components/navbar';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -16,6 +17,7 @@ const Login = () => {
 
   return (
   <div>
+    <Navbar />
     <h1 className="agristock-heading">AgriStock</h1>
     <div className="background-container"></div>
     <div className="login-container">

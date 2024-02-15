@@ -2,12 +2,14 @@ import React from 'react'
 import '../Styles/navbar.css'
 const Navbar = () => {
   return (
-    <div>
+    <div className='navCont'>
         <nav>
+            <div className='logo'>AgriStock</div>
             <ul className='navbar'>
-                <li><a href="#">Home</a></li>
+                <li className='active'><a href="/" >Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#">Contact</a></li> 
+                <li><a href="/login">Login</a></li> 
             </ul>
         </nav>
     </div>
