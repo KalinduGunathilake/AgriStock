@@ -40,7 +40,7 @@ const Navbar = () => {
         <ul className={`navbar ${isOpen ? 'open' : ''}`}>
           <li className='active'><a href="/">Home</a></li>
           <li><a href="/stocks">Stocks</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="/harvests">Harvests</a></li>
           <li><a href="/login">Login</a></li>
           <li className='close' onClick={toggleNav}><span>&times;</span></li>
         </ul>

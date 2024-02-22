@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import Login from './Pages/login';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Cropinfor from './Pages/Cropinfor';
+import Harvests from './Pages/Harvests';
 
 
 const router = createBrowserRouter([
@@ -21,8 +22,8 @@ const router = createBrowserRouter([
       element: <Cropinfor />,
   },
   {
-      path: "/submit",
-      // element: <Submit />,
+      path: "/harvests",
+      element: <Harvests />,
   },
 ]);
 
