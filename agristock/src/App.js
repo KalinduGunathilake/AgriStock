@@ -1,13 +1,9 @@
 import React from "react";
-import Navbar from "./Components/navbar";
-import Harvests from "./Pages/Harvests";
-
+import Home from "./Pages/home";
 function App() {
   return (
     <div className="App">
-      
-      <Harvests/>
-      
+      <Home />
     </div>
   );
 }
