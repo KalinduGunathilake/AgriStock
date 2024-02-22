@@ -1,9 +1,11 @@
 import React from "react";
 import '../Styles/cropinfo.css';
+import Navbar from "../Components/navbar";
 
 const Cropinfor = () => {
   return (
     <div className="outer_container">
+      <Navbar/>
       <div className="inner_container">Carrot</div>
       <div className="inner_container">Potato</div>
       <div className="inner_container">Onion</div>
