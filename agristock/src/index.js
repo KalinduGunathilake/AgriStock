@@ -4,7 +4,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Login from './Pages/login';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-
+import Create from "./Pages/Create"
 
 const router = createBrowserRouter([
   {
@@ -22,6 +22,10 @@ const router = createBrowserRouter([
   {
       path: "/submit",
       // element: <Submit />,
+  },
+  {
+      path: "/register-now",
+      element: <Create />,
   },
 ]);
 
