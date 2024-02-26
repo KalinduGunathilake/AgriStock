@@ -1,9 +1,9 @@
 import React from "react";
-import Cropinfor from "./Pages/Cropinfor";
+import Home from "./Pages/home";
 function App() {
   return (
     <div className="App">
-      <Cropinfor />
+      <Home />
     </div>
   );
 }

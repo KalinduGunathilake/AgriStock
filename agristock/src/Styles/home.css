@@ -1,0 +1,62 @@
+
+
+.heroCont {
+    height: 100svh;
+    width: 100%;
+    background-color: var(--homebody-color);
+    padding: 5svh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /* border-radius: 10 0 0 0; */
+    
+
+}
+
+.heroImgCont {
+    position: relative;
+    display: block;
+    width: 65%;
+    /* border: 3px solid white; */
+}
+.heroImg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.heroContext {
+    position: relative;
+    width: 35%;
+    margin-left: 50px;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    font-size: 3vw;
+    font-weight: 500;
+    line-height: 3.5vw;
+}
+
+.additionalContent {
+    width: 100%;
+    height: 100svh;
+    background-color: white;
+}
+
+
+@media (max-width: 1000px) {
+    .heroCont {
+        flex-direction: column;
+    }
+    .heroContext {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 50px;
+        font-size: 9vw;
+        line-height: 10vw;
+
+    }
+    .heroImgCont {
+        width: 100%;
+    }
+}
