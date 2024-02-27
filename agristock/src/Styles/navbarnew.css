@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+.navCont {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    /* height: 10vh; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* opacity: 0.2; */
+}
+
+nav {
+    margin-top: 2svh;
+    background-color: var(--navBackground-color);
+    backdrop-filter: blur(15px);
+    width: 90%;
+    height: 9svh;
+    border-radius: 5svh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.navbar {
+    position: relative;
+    height: 100%;
+    display: flex;
+    padding: 0 20px;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+.navbar li {
+    padding: 10px 20px;
+    margin: 0 5px;
+    /* border: 1px solid black; */
+    
+}
+.logo  {
+    font-size: 1.8rem;
+    font-family: "Lobster", sans-serif;
+    margin-left: 5vw;
+}
+.active {
+    border: 3px solid var(--homebody-color);
+    border-radius: 50px;
+}
+
+.navbar li a {
+    color:#1D7D21;
+    font-family: "Inter", sans-serif;
+}
+
+/* header {
+    width: 100%;
+    height: 100svh;
+} */
+
+  /* Hamburger Icon */
+  .hamburger {
+    display: none; /* Initially hide on larger screens */
+    cursor: pointer;
+  }
+  
+  .hamburger .line {
+    width: 30px;
+    height: 4px;
+    background-color: black;
+    margin: 4px 0;
+    transition: all 0.3s ease-in-out;
+  }
+  .navbar.open {
+    right: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      padding-right: 20px;
+    }
+    .navbar {
+        position: absolute;
+        top: 0;
+        margin-top: -2svh;
+        margin-right: -20px;
+        right: -100%;
+        height: 100svh;
+        width: 80%; /* Adjust this value according to your design */
+        background-color: var(--navBackground-color);
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        transition: right 0.3s ease-in-out;
+        /* border: 1px solid black; */
+      }
+    
+  }
