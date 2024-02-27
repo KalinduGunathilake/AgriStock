@@ -82,15 +82,16 @@
     right: 0;
   }
   
-  .navbar li.close {
+  .navbar.open li.close {
     display: none; /* Initially hide close icon */
   }
-  
   .navbar.open li.close {
     display: block; /* Display close icon when navbar is open */
   }
+ 
   
   @media only screen and (max-width: 768px) {
+    
     .hamburger {
       display: flex;
       flex-direction: column;
