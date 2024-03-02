@@ -3,7 +3,7 @@ body {
   }
   .agristock-heading {
     position: absolute;
-    top: 12%;
+    top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Lobster', cursive;
@@ -13,7 +13,7 @@ body {
 
 .create-container{
     width: 440px;
-    height: 510px;
+    height: 525px;
     padding: 20px;
     position: absolute;
     top: 55%;
@@ -30,9 +30,9 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    height: 540px;
-    border-radius:15px;
+    height: 550px;
     background-color: #ffffff;
+    border-radius:15px;
     z-index: -1; 
   }
   h2 {
@@ -44,7 +44,7 @@ body {
  .radio-container {
     display: flex; 
     justify-content: center;  
-    margin-bottom: 45px;
+    margin-bottom: 28px;
    
   }
 
@@ -54,16 +54,11 @@ body {
     max-width: 45px; 
   }
 
-  .radio-container span {
-    margin-top: 20px;
-}
-
  .name-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 10px;
 }
 
 .input-container {
@@ -72,13 +67,13 @@ body {
 
 .input-container label {
   display: block;
-  height: 25px;
+  height: 30px;
   border-radius: 8px;
 }
 
 .input-container input {
   width: 100%;
-  height: 35px;
+  height: 30px;
   padding: 5px;
   border-radius: 8px;
   margin-bottom: 10px;
@@ -87,21 +82,21 @@ body {
 
 label {
   display: block;
-  height: 25px;
+  height: 30px;
   border-radius: 8px;
 }
  
 input {
     width: 100%;
-    height: 35px;
+    height: 29px;
     padding: 5px;
-    margin-bottom: 13px;
+    margin-bottom: 10px;
     border-radius: 8px;
   }
 
   button.signup {
-    width: 130px;
-    height: 38px;
+    width: 110px;
+    height: 32px;
     padding: 5px;
     background-color: rgb(165, 235, 168);
     color: #000000;
@@ -109,7 +104,7 @@ input {
     border-radius: 20px;
     cursor: pointer;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 15px auto 15px auto;
+    margin: 9px auto 10px auto;
     display: block; 
     font-weight: bold;  
   }
@@ -118,4 +113,27 @@ input {
   button.signup:hover {
   background-color: #3e57f5;
   }
+  @media only screen and (max-width: 768px) {
+    .create-container {
+      width: 90%;
+      max-width: 400px;
+      height: 525px;
+      padding: 15px;
+      position: absolute;
+      top: 55%;
+      left: 50%;
+    }
+
+    .agristock-heading {
+      top: 5%;
+      left: 50%;
+      position: absolute;
+    }
+  
+    .background-container {
+      height: 550px
+    
+    }
+  }
+
 

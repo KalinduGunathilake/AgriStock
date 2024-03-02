@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import '../Styles/create.css'
+import backgroundImage from '../Images/back.jpg';
 
 const Create = () => {
     const [fristname, setFristname] = useState('');
     const [lastname, setLastname] = useState('');
+    const [number, setNumber] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmpassword, setConfirmPassword] = useState('');
@@ -18,7 +20,7 @@ const Create = () => {
 return(
 <div>
     <h1 className="agristock-heading">AgriStock</h1>
-    <div className="background-container"></div>
+    <div className="background-container" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}></div>
     <div className="create-container">
          {/* Create form content */}
         <h2>Create Account</h2>
@@ -45,6 +47,8 @@ return(
 
         <label htmlFor="email">Email Address:</label>
         <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <label htmlFor="number">Contact Number:</label>
+        <input type="text" id="number" value={number} onChange={(e) => setNumber(e.target.value)} required />
         <label htmlFor="password">Password:</label>
         <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         <label htmlFor="confirmpassword">Confirm Password:</label>
