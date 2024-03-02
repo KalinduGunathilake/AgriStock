@@ -119,3 +119,18 @@ body {
   .register-now:hover{
     color:#3e57f5;
   }
+  @media only screen and (max-width: 768px) {
+    .login-container {
+      width: 90%;
+      max-width: 400px;
+    }
+  
+    .agristock-heading {
+      font-size: 40px; 
+      top: 5%; 
+    }
+  
+    .background-container {
+      height: auto
+    }
+  }
