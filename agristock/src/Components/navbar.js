@@ -26,6 +26,7 @@ const Navbar = () => {
 
   const toggleNav = () => {
     setIsOpen(!isOpen);
+    
   };
 
   return (
