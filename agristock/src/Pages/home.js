@@ -16,7 +16,11 @@ const Home = () => {
         <div className="heroImgCont">
           <img src={HeroImg} className="heroImg" alt="heroImg"  />
         </div>
+        
       </div>
+      <div className="additionalContent" >
+          
+        </div>
       <Footer />
     </div>
   );

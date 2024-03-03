@@ -4,6 +4,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Login from './Pages/login';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Cropinfor from './Pages/Cropinfor';
+import Harvests from './Pages/Harvests';
+import Create from './Pages/Create';
 
 
 const router = createBrowserRouter([
@@ -16,12 +19,16 @@ const router = createBrowserRouter([
       element: <Login />,
   },       
   {
-      path: "/reports",
-      // element: <Reports />,
+      path: "/stocks",
+      element: <Cropinfor />,
   },
   {
-      path: "/submit",
-      // element: <Submit />,
+      path: "/harvests",
+      element: <Harvests />,
+  },
+  {
+      path: "/register-now",
+      element: <Create />,
   },
 ]);
 
