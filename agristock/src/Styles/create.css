@@ -13,8 +13,11 @@ body {
 
 .create-container{
     width: 440px;
-    height: 525px;
-    padding: 20px;
+    height: 527px;
+    padding-top: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 10px;
     position: absolute;
     top: 55%;
     left: 50%;
