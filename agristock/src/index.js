@@ -6,6 +6,7 @@ import Login from './Pages/login';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Cropinfor from './Pages/Cropinfor';
 import Harvests from './Pages/Harvests';
+import Create from './Pages/Create';
 
 
 const router = createBrowserRouter([
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
       path: "/harvests",
       element: <Harvests />,
+  },
+  {
+      path: "/register-now",
+      element: <Create />,
   },
 ]);
 
