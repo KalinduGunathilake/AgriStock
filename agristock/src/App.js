@@ -1,12 +1,15 @@
 import React from "react";
 import Navbar from "./Components/navbar";
-import Harvests from "./Pages/Harvests";
+
+import MoreDetails from "./Pages/MoreDetails";
+
 
 function App() {
   return (
     <div className="App">
       
-      <Harvests/>
+      <MoreDetails/>
+     
       
     </div>
   );
