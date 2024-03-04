@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../Styles/login.css'
+import backgroundImage from '../Images/logback.jpg';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -17,7 +18,7 @@ const Login = () => {
   return (
   <div>
     <h1 className="agristock-heading">AgriStock</h1>
-    <div className="background-container"></div>
+    <div className="background-container" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}></div>
     <div className="login-container">
         {/* Login form content */}
       <h2>Welcome Back!</h2>
