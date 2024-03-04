@@ -1,18 +1,20 @@
 import React from "react";
 import '../Styles/cropinfo.css';
-import carrotImage from "E:/IIT/SDGP/AgriStock/agristock/src/Images/Carrot.jpg";
-import potatoImage from "E:/IIT/SDGP/AgriStock/agristock/src/Images/Potato.jpg";
-import onionImage from "E:/IIT/SDGP/AgriStock/agristock/src/Images/Onion.jpg";
-import tomatoImage from "E:/IIT/SDGP/AgriStock/agristock/src/Images/Tomato.jpg";
-import brinjalImage from "E:/IIT/SDGP/AgriStock/agristock/src/Images/Brinjal.jpg";
-import chillyPepperImage from "E:/IIT/SDGP/AgriStock/agristock/src/Images/Chilly Pepper.jpg";
-import cucumberImage from "E:/IIT/SDGP/AgriStock/agristock/src/Images/Cucumber.jpg";
-import cornImage from "E:/IIT/SDGP/AgriStock/agristock/src/Images/Corn.jpg";
-
+import carrotImage from "../Images/Carrot.jpg";
+import potatoImage from "../Images/Potato.jpg";
+import onionImage from "../Images/Onion.jpg";
+import tomatoImage from "../Images/Tomato.jpg";
+import brinjalImage from "../Images/Brinjal.jpg";
+import chillyPepperImage from "../Images/Chilly Pepper.jpg";
+import cucumberImage from "../Images/Cucumber.jpg";
+import cornImage from "../Images/Corn.jpg";
+import Navbar from "../Components/navbar";
+import Footer from "../Components/footer";
 const Cropinfor = () => {
   return (
     <div>
-      <input type="text" placeholder="Select Crop" className="search_bar" />
+      <Navbar />
+      
       <div className="outer_container">
         <div className="image-grid">
           <div className="row">
@@ -53,7 +55,9 @@ const Cropinfor = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
+    
   )
 }
 export default Cropinfor;
