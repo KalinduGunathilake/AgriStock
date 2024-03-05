@@ -1,7 +1,6 @@
 
 .harvest-Title{
-    background-color:#A5EBA8
-    ;
+    background-color:#A5EBA8;
     border-radius: 20px;
     margin-left: 4rem;
     margin-right: 2rem;
@@ -15,9 +14,8 @@
     color:green;
     margin-left: 10rem;
     margin-top:0.5rem ;
-    
-    
 }
+
 .harvest-container{
     display: flex;
     flex-direction:row ;
@@ -75,10 +73,15 @@
 .daysMore{color: red;
     margin-left: 1rem;
     display: flex;
-    margin-top: 0.5rem;
+    margin-top: 0.5rem;}
     
+.ListedDate{ margin-bottom: 1rem;
+    color:green;
+    margin-left: 1rem;
+    margin-right: 1rem;
 
 }
+
 .button{
     border-radius: 30px;
     font-size: 0.88rem;
