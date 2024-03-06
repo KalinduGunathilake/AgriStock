@@ -1,6 +1,6 @@
 import React from "react";
 import '../Styles/cropinfo.css';
-import carrotImage from "../Images/Carrot.jpg";
+import carrotImage from "../Images/carrot.jpg";
 import potatoImage from "../Images/Potato.jpg";
 import onionImage from "../Images/Onion.jpg";
 import tomatoImage from "../Images/Tomato.jpg";
