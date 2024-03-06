@@ -7,6 +7,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Cropinfor from './Pages/Cropinfor';
 import Harvests from './Pages/Harvests';
 import Create from './Pages/Create';
+import MoreDetails from './Pages/MoreDetails';
 
 
 const router = createBrowserRouter([
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
       path: "/register-now",
       element: <Create />,
+  },
+  {
+      path: "/moredetails",
+      element: <MoreDetails />,
   },
 ]);
 

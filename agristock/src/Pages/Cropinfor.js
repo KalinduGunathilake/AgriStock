@@ -8,10 +8,13 @@ import brinjalImage from  '../Images/Brinjal.jpg';
 import chillyPepperImage from  '../Images/Chilly Pepper.jpg';
 import cucumberImage from  '../Images/Cucumber.jpg';
 import cornImage from  '../Images/Corn.jpg';
+import Navbar from "../Components/navbar";
+import Footer from "../Components/footer";
 const Cropinfor = () => {
   return (
     <div>
-      <input type="text" placeholder="Select Crop" className="search_bar" />
+      <Navbar />
+      
       <div className="outer_container">
         <div className="image-grid">
           <div className="row">
@@ -52,7 +55,9 @@ const Cropinfor = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
+    
   )
 }
 export default Cropinfor;
