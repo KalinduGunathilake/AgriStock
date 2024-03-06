@@ -6,7 +6,7 @@ import Details from '../Components/Details'
 function MoreDetails() {
   return (
     <div>
-      
+      <Navbar/>
       <Details/>
     </div>
   )

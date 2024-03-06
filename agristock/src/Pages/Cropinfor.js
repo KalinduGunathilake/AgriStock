@@ -1,13 +1,13 @@
 import React from "react";
 import '../Styles/cropinfo.css';
-import carrotImage from "E:/IIT/SDGP/AgriStock/agristock/src/Images/Carrot.jpg";
-import potatoImage from "E:/IIT/SDGP/AgriStock/agristock/src/Images/Potato.jpg";
-import onionImage from "E:/IIT/SDGP/AgriStock/agristock/src/Images/Onion.jpg";
-import tomatoImage from "E:/IIT/SDGP/AgriStock/agristock/src/Images/Tomato.jpg";
-import brinjalImage from "E:/IIT/SDGP/AgriStock/agristock/src/Images/Brinjal.jpg";
-import chillyPepperImage from "E:/IIT/SDGP/AgriStock/agristock/src/Images/Chilly Pepper.jpg";
-import cucumberImage from "E:/IIT/SDGP/AgriStock/agristock/src/Images/Cucumber.jpg";
-import cornImage from "E:/IIT/SDGP/AgriStock/agristock/src/Images/Corn.jpg";
+import carrotImage from'../images/carrot.jpg';
+import potatoImage from '../images/Potato.jpg';
+import onionImage from '../images/Onion.jpg';
+import tomatoImage from '../images/Tomato.jpg';
+import brinjalImage from '../images/Brinjal.jpg';
+import chillyPepperImage from '../images/Chilly Pepper.jpg';
+import cucumberImage from '../images/Cucumber.jpg';
+import cornImage from '../images/Corn.jpg';
 
 const Cropinfor = () => {
   return (
