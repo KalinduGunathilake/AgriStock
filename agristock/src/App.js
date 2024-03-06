@@ -6,6 +6,7 @@ import MoreDetails from "./Pages/MoreDetails";
 function App() {
   return (
     <div className="App">
+      <Navbar/>
       <MoreDetails/>
     </div>
   );
