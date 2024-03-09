@@ -1,13 +1,13 @@
 import React from "react";
 import '../Styles/cropinfo.css';
-import carrotImage from "../Images/carrot.jpg";
-import potatoImage from "../Images/Potato.jpg";
-import onionImage from "../Images/Onion.jpg";
-import tomatoImage from "../Images/Tomato.jpg";
-import brinjalImage from "../Images/Brinjal.jpg";
-import chillyPepperImage from "../Images/Chilly Pepper.jpg";
-import cucumberImage from "../Images/Cucumber.jpg";
-import cornImage from "../Images/Corn.jpg";
+import carrotImage from  '../Images/Carrot.jpg';
+import potatoImage from  '../Images/Potato.jpg';
+import onionImage from  '../Images/Onion.jpg';
+import tomatoImage from  '../Images/Tomato.jpg';
+import brinjalImage from  '../Images/Brinjal.jpg';
+import chillyPepperImage from  '../Images/Chilly Pepper.jpg';
+import cucumberImage from  '../Images/Cucumber.jpg';
+import cornImage from  '../Images/Corn.jpg';
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer";
 const Cropinfor = () => {

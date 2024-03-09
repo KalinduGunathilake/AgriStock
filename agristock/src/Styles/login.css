@@ -119,9 +119,7 @@ body {
     color:#3e57f5;
   }
   @media only screen and (max-width: 768px) {
-    .login-container {
-      width: 85%;
-    }
+   
   
     .agristock-heading {
       font-size: 40px; 
@@ -133,3 +131,8 @@ body {
       height: auto
     }
   }
+  @media only screen and (max-width:420px) {
+  .login-container {
+    width: 85%;
+  }
+}
