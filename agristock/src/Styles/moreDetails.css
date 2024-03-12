@@ -1,0 +1,115 @@
+.card-container{
+    
+    flex-wrap:wrap;
+    margin-left:auto;
+    margin-top:10rem ;
+    width:auto;
+    height:auto;
+    border-radius: 20px;
+}
+.card{
+    margin-top: 10px;
+    margin: 20px;
+    border:2px solid #ededed;
+    border-color:#D1F3D2;
+    padding: 2px;
+    border-radius: 40px;
+    height: 37rem;
+    width: 77rem;
+}
+
+.Name{
+    margin-bottom: 1rem;
+    color:black;
+    margin-left: 10rem;
+    margin-right: 1rem;
+}   
+.Location{
+    margin-bottom: 1rem;
+    color:green;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}   
+.ContactNumber{
+    margin-bottom: 1rem;
+    color:green;
+    margin-left: 1rem;
+    margin-right: 1rem
+}
+.card-img{
+    width:20rem;
+    height: 20rem;
+    margin-bottom:1rem;
+    margin-left: 5rem;
+    margin-top: 2rem;
+    margin-right: 5rem;
+    padding: 5%;
+    border:2px solid #ededed;
+    border-color:#D1F3D2;
+    border-radius: 28%;
+    
+
+    
+}
+.daysMore{color: red;
+    margin-right: 5rem;
+    margin-left:20rem ;
+    display: block;
+   
+
+}
+.expiresIn{
+    color:gray;
+    margin-right: 5rem;
+    margin-left:20rem ;
+    display: block;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.ListedDate{
+    margin-bottom: 1rem;
+    color:green;
+    margin-left: 1rem;
+    margin-right: 1rem
+}
+.HarvestDate{
+    margin-bottom: 1rem;
+    color:green;
+    margin-left: 1rem;
+    margin-right: 1rem
+}
+
+
+.Price{
+    margin-bottom: 1rem;
+    color:green;
+    margin-left: 1rem;
+    margin-right: 1rem
+}
+.AvailableQuantity{
+    margin-bottom: 1rem;
+    color:green;
+    margin-left: 1rem;
+    margin-right: 1rem
+}
+.button{
+    border-radius: 30px;
+    font-size: 0.88rem;
+    border-style: hidden;
+    margin-left: 15rem;
+    margin-right: 0.5rem;
+    padding: 0.2rem 0.2rem;
+    font-weight: bold;
+    white-space: nowrap;
+    background-color:#7DEFFF;
+    width: 120px;
+    height:30px ;
+    margin-bottom: 1rem;
+    margin-top: 0.01rem;
+    cursor: pointer;
+    
+   
+}
+.button:clicked{
+        background-color: #0056b3;
+}
