@@ -1,7 +1,7 @@
 import React from 'react'
 import '../Styles/harvest.css' 
 import { Link, NavLink } from 'react-router-dom'
-import MoreDetails from '../Pages/MoreDetails'
+import MoreDetails from '../Pages/HarvestDetails'
 function Product(props) {
 
   const MoreDetails = () =>{

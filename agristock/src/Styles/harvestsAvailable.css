@@ -1,0 +1,228 @@
+/* 
+.harvest-Title{
+    background-color:#A5EBA8;
+    border-radius: 20px;
+    margin-left: 4rem;
+    margin-right: 2rem;
+}
+.harvestTitle{
+    display:flex;
+    margin-top:5rem ;
+    margin-left: 10rem;
+}
+.harvestName{
+    color:green;
+    margin-left: 10rem;
+    margin-top:0.5rem ;
+}
+
+.harvest-container{
+    display: flex;
+    flex-direction:row ;
+}
+
+.card-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    margin-left:3rem;
+    margin-top:2rem ;
+    z-index: 2;
+    width: 25%;
+    height: auto;
+    border-radius: 20px;
+    
+    
+
+}
+.card{
+    
+    margin: 20px;
+    border:2px solid #ededed;
+    border-color:#D1F3D2;
+    padding: 2px;
+    border-radius: 40px;
+    
+    
+    
+}
+
+
+.location{
+    margin-bottom: 1rem;
+    color:green;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}   
+
+.card-img{
+    width:12rem;
+    height: 10rem;
+    margin-bottom:1rem;
+    margin-left: 1rem;
+    margin-top: 2rem;
+    margin-right: 1rem;
+    padding: 5%;
+    border:2px solid #ededed;
+    border-color:#D1F3D2;
+    border-radius: 28%;
+    
+
+    
+}
+.daysMore{color: red;
+    margin-left: 1rem;
+    display: flex;
+    margin-top: 0.5rem;}
+    
+.ListedDate{ margin-bottom: 1rem;
+    color:green;
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+}
+
+.button{
+    border-radius: 30px;
+    font-size: 0.88rem;
+    border-style: hidden;
+    margin-left: 6rem;
+    margin-right: 0.5rem;
+    padding: 0.2rem 0.2rem;
+    font-weight: bold;
+    white-space: nowrap;
+    background-color:#7DEFFF;
+    width: 120px;
+    height:30px ;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    
+   
+}
+.button:clicked{
+        background-color: #0056b3;
+}
+.expiresIn{
+    color:gray;
+    margin-left: 1rem;
+} */
+
+
+.harvestsCont {
+    margin-top: 13svh;
+    width: 100%;
+    /* min-height: calc(100svh - 13svh); */
+    /* min-height: 50svh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* background-color: rgb(233, 233, 233); */
+    background-color: #fafafa;
+    padding: 5svh;
+    border-radius: 20px;
+}
+
+.harvestCard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 250px;
+    height: 350px;
+    border: 2px solid #6363637a;
+    border-radius: 20px;
+    margin: 20px;
+    /* padding-top: 10%; */
+}
+
+.priorityIcon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 10%;
+    padding: 20px 20px;
+    /* border: 1px solid black; */
+    color: red;
+    /* text-align: right; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    display: none;
+    visibility: hidden;
+}
+
+.harvestImage {
+    /* margin-top: 15%; */
+    width: 85%;
+    height: 40%;
+    border-radius: 20px;
+    object-fit: cover;
+    background-color: rgb(220, 220, 220);
+}
+.harvestLocation {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+.harvestDate {
+    width: 100%;
+    height: auto;
+    padding: 0 25px;
+    color: #636363d3;
+}
+
+.harvestDateText {
+    font-size: 14px;
+}
+.harvestDateNum{
+    color: black;
+}
+.redText *{
+    color: red;
+    font-weight: 500;
+    /* display: block; */
+    /* visibility: visible; */
+}
+
+
+@media only screen and (max-width: 768px) {
+    .harvestsCont{
+        padding: 15px;
+        align-items: flex-start;
+    }
+    .harvestCard {
+        width: 100%;
+        height: 200px;
+        margin: 10px 0px;
+        flex-direction: row;
+    }
+    .harvestImage {
+        width: auto;
+        max-width: 40%;
+        height: 80%;
+        margin: 10px;
+        aspect-ratio: 1;
+        /* height: auto; */
+        object-fit: cover;
+        border-radius: 20px;
+    }
+    .harvestInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .harvestLocation {
+        font-size: 15px;
+    }
+    .harvestDate {
+        width: auto;
+        padding: 10px;
+
+    }
+}
