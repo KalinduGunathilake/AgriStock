@@ -72,4 +72,83 @@
 } */
 
 
+.cropsCont {
+  margin-top: 13svh;
+  width: 100%;
+  min-height: calc(100svh - 13svh);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.cropCard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 95%;
+  max-width: 1000px;
+  padding: 20px;
+  
+}
+
+.cropItem {
+  color: black;
+  width: 200px;
+  /* max-width: 200px; */
+  /* border: 1px solid black; */
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(245, 245, 245);
+  border-radius: 20px;
+  margin: 20px;
+}
+
+.cropItem img {
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
+  border-radius: 20px;
+  /* border: 1px solid black; */
+
+}
+
+@media only screen and (max-width: 768px) {
+  .cropsCont {
+    align-items: flex-start;
+  }
+
+  
+  .cropItem {
+    width: calc(39vw - 10px);
+    height: calc(39vw - 10px);
+    /* padding: 5px; */
+    margin: 5px;
+  }
+}
+
+@media only screen and (max-width: 346px) {
+  .cropsCont {
+    padding: 0;
+  }
+  .cropCard {
+    padding: 0;
+    border: 1px solid black;
+  }
+  
+  .cropItem {
+    /* width: 30vw;
+    height: 30vw; */
+    /* padding: 5px; */
+    margin: 5px 1px;
+    font-size: 5vw;
+  }
+  
+}
+
+
 
