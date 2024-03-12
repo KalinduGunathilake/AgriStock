@@ -119,6 +119,8 @@ background-color: #3e57f5;
 @media only screen and (max-width: 768px) {
   .create-container {
     width: 90%;
+    max-width: 400px;
+    height: 525px;
     padding: 15px;
     position: absolute;
     top: 55%;
@@ -129,4 +131,8 @@ background-color: #3e57f5;
     top: 5%;
   }
 
+  .background-container {
+    height: 550px
+  
+  }
 }
