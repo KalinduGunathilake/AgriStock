@@ -1,4 +1,4 @@
-.image-grid {
+/* .image-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -47,5 +47,29 @@
 .inner_container img {
   max-width: 100%;
   max-height: 100%;
-  border-radius: 50%; /* to maintain rounded corners */
+  border-radius: 50%; to maintain rounded corners
+} */
+
+
+/* .cropsCont {
+  margin-top: 13svh;
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.cropCard {
+  width: 95%;
+  max-width: 1500px;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid black;
+}
+.cropCard img {
+  width: 100%;
+} */
+
+
+

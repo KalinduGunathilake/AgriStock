@@ -6,6 +6,13 @@ import HeroImg from "../Images/Asset 11.png";
 import Footer from "../Components/footer";
 
 const Home = () => {
+
+  // document.onload = function() {
+    // Code to execute when the entire document has loaded
+    // console.log('Document loaded');
+    document.body.style.overflow = 'auto';
+  // };
+  
   return (
     <div>
       <Navbar />
@@ -21,7 +28,7 @@ const Home = () => {
       <div className="additionalContent" >
           
         </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

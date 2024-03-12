@@ -1,0 +1,18 @@
+
+.harvestDetailsCont {
+    margin: 13svh 20px 20px 20px;
+    background-color: white;
+    height: calc(100svh - (13svh + 20px));
+    width: calc(100vw - 40px);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 768px) {
+    .harvestDetailsCont {
+        flex-direction: column;
+        
+    }
+}
