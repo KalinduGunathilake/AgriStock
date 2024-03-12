@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../Styles/login.css'
-import backgroundImage from '../Images/logback.jpg';
+import backgroundImage from '../images/logback.jpg';
 
 const Login = () => {
   const [username, setUsername] = useState('');
