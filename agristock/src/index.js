@@ -1,47 +1,61 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Login from './Pages/login';
+import Login from './Pages/Login';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Cropinfor from './Pages/Cropinfor';
-import Harvests from './Pages/Harvests';
+import Crops from './Pages/Crops';
+import Harvests from './Pages/HarvestsAvailable';
 import Create from './Pages/Create';
-import MoreDetails from './Pages/MoreDetails';
+import HarvestDetails from './Pages/HarvestDetails';
+import HarvestsAvailable from './Pages/HarvestsAvailable';
+import CreateHarvest from './Pages/CreateHarvest';
 
 
-
+// Assuming crops are fetched successfully
 const router = createBrowserRouter([
   {
-      path: "/",
-      element: <App />,
+    path: "/",
+    element: <App />,
   },
   {
-      path: "/login",
-      element: <Login />,
-  },       
-  {
-      path: "/stocks",
-      element: <Cropinfor />,
+    path: "/login",
+    element: <Login />,
   },
   {
-      path: "/harvests",
-      element: <Harvests />,
+    path: "/stocks",
+    element: <Crops />,
   },
   {
-      path: "/register-now",
-      element: <Create />,
+    path: "/harvests",
+    element: <Harvests />,
   },
   {
-    path: "/button",
-    element: <MoreDetails/>,
-},
+    path: "/register-now",
+    element: <Create />,
+  },
+  {
+    path: "/stocks/:cropName/:harvestID",
+    element:<HarvestDetails />,
+  },
+  {
+    path: "/stocks/:cropName",
+    element:<HarvestsAvailable />,
+  },
+  {
+    path: "/createHarvest/userID",
+    element:<CreateHarvest />,
+  },
+
 ]);
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider router={router} ></RouterProvider>
   </React.StrictMode>
 );
 

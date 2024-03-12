@@ -1,6 +1,12 @@
 import React from 'react'
 import '../Styles/harvest.css' 
+import { Link, NavLink } from 'react-router-dom'
+import MoreDetails from '../Pages/HarvestDetails'
 function Product(props) {
+
+  const MoreDetails = () =>{
+    console.log(`clickedprop${props.image}`)
+  }
   return (
       
       <section className='card-container'>
@@ -16,7 +22,7 @@ function Product(props) {
             <div className='expireDate'>
               <del className='daysMore'><p>{props.ExpireDate} days</p></del>
             </div>
-            <button className='button'type='button'>Click for details</button>
+            <button onClick={MoreDetails} className='button'type='button'>Click for details</button>
             
             
               

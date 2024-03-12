@@ -13,3 +13,4 @@ function MoreDetails() {
 }
 
 export default MoreDetails
+
