@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../Styles/create.css'
-import backgroundImage from '../Images/back.jpg';
+import backgroundImage from '../images/back.jpg';
 
 const Create = () => {
     const [fristname, setFristname] = useState('');
