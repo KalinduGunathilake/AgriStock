@@ -67,7 +67,7 @@ const Navbar = () => {
 				<ul className={`navbar ${isOpen ? 'open' : ''}`}>
 					<li><NavLink to="/" component={Link}>Home</NavLink></li>
 					<li><NavLink component={Link} to="/stocks">Stocks</NavLink></li>
-					<li><NavLink component={Link} to="/harvests">Harvests</NavLink></li>
+					<li><NavLink component={Link} to="/harvests">News</NavLink></li>
 					<li><NavLink component={Link} to="/login">Login</NavLink></li>
 					{/* <li className='close' onClick={toggleNav}><span>&times;</span></li> */}
 				</ul>
