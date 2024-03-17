@@ -62,7 +62,7 @@ const Navbar = () => {
 			<nav>
 				<div className='logo'>AgriStock</div>
 				<div className='hamburger' onClick={toggleNav}>
-					<box-icon name='menu' id='navIcon'></box-icon>
+					<box-icon name='menu' id='navIcon' ></box-icon>
 				</div>
 				<ul className={`navbar ${isOpen ? 'open' : ''}`}>
 					<li><NavLink to="/" component={Link}>Home</NavLink></li>

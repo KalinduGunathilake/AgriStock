@@ -103,6 +103,8 @@ app.get('/getharvestdetails', async (req, res) => {
 
 app.post('/createCrop', async (req, res) => {
     try {
+        console.log(req.body);
+        console.log("end point called");
         const newHarvest = new Harvests(req.body);
         await newHarvest.save();
         res.status(201).json(newHarvest);

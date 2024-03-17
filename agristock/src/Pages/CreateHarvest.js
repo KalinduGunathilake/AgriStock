@@ -4,6 +4,8 @@ import axios from 'axios';
 // import ObjectId from 'bson-objectid'
 import { v4 as uuidv4 } from 'uuid';
 import databaseURL from '../Config/backendURL'
+import { ref } from 'firebase/storage';
+import { imageDB } from '../Firebase/config.js';
 
 const CreateHarvest = () => {
 
@@ -11,9 +13,10 @@ const CreateHarvest = () => {
         return uuidv4(); // Generate a random UUID
     };
     const objectID = generateUUID();
+    const [img, setImg] = useState("");
 
     const [harvestData, setHarvestData] = useState({
-        _id: objectID,
+        uuid: objectID,
         cropName: '',
         harvestOwner: '',
         location: '',
@@ -22,6 +25,7 @@ const CreateHarvest = () => {
         expectedHarvestDate: '',
         pricePerKg: '',
         expectedQuantity: '',
+        img: '',
     });
     const handleChange = (e) => {
         setHarvestData({ ...harvestData, [e.target.name]: e.target.value });
@@ -42,16 +46,25 @@ const CreateHarvest = () => {
             const data = await response.json();
             console.log('Crop created:', data);
             console.log('Data sent to MongoDB successfully!');
-        } catch (error) {
+            // ref
+        }
+        
+         catch (error) {
             console.error('Error creating crop:', error);
         }
     };
+
+    // const handleImageChange = (e) => {
+        
+    // }
+
+     
     return (
         <div>
             <h1>Create Crop</h1>
             <h3>{objectID}</h3>
             <form onSubmit={handleSubmit}>
-                <input type="hidden" name="_id" value={objectID} /> {/* Hidden input for _id */}
+                {/* <input type="hidden" name="_id" value={objectID} /> Hidden input for _id */}
                 <input type="text" name="cropName" placeholder="Crop Name" onChange={handleChange} required />
                 <input type="text" name="harvestOwner" placeholder="Name" onChange={handleChange} required />
                 <input type="text" name="location" placeholder="Location" onChange={handleChange} required />
@@ -60,6 +73,7 @@ const CreateHarvest = () => {
                 <input type="date" name="expectedHarvestDate" placeholder="Expected Harvest Date" onChange={handleChange} required />
                 <input type="number" name="pricePerKg" placeholder="Price Per Kg" onChange={handleChange} required />
                 <input type="text" name="expectedQuantity" placeholder="Expected Quantity" onChange={handleChange} required />
+                <input type="file" name="image"  accept=".png, .jpg, .jpeg" onChange={(e)=> setImg (e.target.files[0])} required />
                 <button type="submit">Submit</button>
             </form>
         </div>

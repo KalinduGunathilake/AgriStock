@@ -11,6 +11,7 @@ const Home = () => {
     // Code to execute when the entire document has loaded
     // console.log('Document loaded');
     document.body.style.overflow = 'auto';
+    console.log(1 + '1');
   // };
   
   return (

@@ -11,6 +11,7 @@ import Create from './Pages/Create';
 import HarvestDetails from './Pages/HarvestDetails';
 import HarvestsAvailable from './Pages/HarvestsAvailable';
 import CreateHarvest from './Pages/CreateHarvest';
+import Register from './Pages/Register';
 
 
 // Assuming crops are fetched successfully
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
   },
   {
     path: "/stocks",

@@ -2,9 +2,13 @@ const { Double, Decimal128, ObjectId } = require('mongodb');
 const mongoose = require('mongoose');
 
 const harvestsSchema = new mongoose.Schema({
-    _id: {
+    // _id: {
+    //     type: String,
+    //     required: true
+    // },
+    uuid: {
         type: String,
-        required: true
+        required: true,
     },
     cropName: {
         type: String,
