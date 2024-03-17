@@ -79,7 +79,7 @@ const HarvestsAvailable = () => {
 										<p className='harvestDateNum'>{dateDiff(harvest.expectedHarvestDate) } days</p>
 									</div>
 									{/* <h3>{harvest.name}</h3> */}
-									<Link to={`/stocks/${cropName}/${harvest._id}`} className='moreInfoBtn'>More Info</Link>
+									<Link to={`/stocks/${cropName}/${harvest._id}`} className='moreInfoBtn'>More Details</Link>
 								</div>
 							</div>
 						))}
