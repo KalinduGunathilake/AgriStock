@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import '../Styles/login.css';
 import backgroundImage from '../Images/logback.jpg';
-import { auth } from '../Config/firebaseConfig';
+import { auth } from '../Config/firebaseConfiger';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithGoogle } from "../Config/firebaseConfiger";
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -22,9 +23,7 @@ const Login = () => {
       });
   };
 
-  const handleGoogleSignIn = () => {
-    console.log("Signing in with Google...");
-  };
+
 
   return (
     <div>
@@ -41,7 +40,9 @@ const Login = () => {
           <button className="login" onClick={handleLogin}>Login</button>
         </form>
       
-        <button className="google-signin" onClick={handleGoogleSignIn}>Sign in with Google</button>
+        <div className="container">
+            <button className="google-signin" onClick={signInWithGoogle}>Sign in with Google</button>
+        </div>
         <a href="/forgot-password" className="forgot-password-link">Forgot Password?</a>
         <a href="/register-now" className="register-now">Register Now</a>
       </div>
