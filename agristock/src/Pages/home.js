@@ -4,6 +4,7 @@ import "../Styles/home.css";
 import "../Styles/App.css";
 import HeroImg from "../Images/Asset 11.png";
 import Footer from "../Components/footer";
+import { useAuth } from "../Context/AuthContext/authContext";
 
 const Home = () => {
 
@@ -13,6 +14,7 @@ const Home = () => {
     document.body.style.overflow = 'auto';
     console.log(1 + '1');
   // };
+  const { currentUser } = useAuth()
   
   return (
     <div>
@@ -20,6 +22,7 @@ const Home = () => {
       <div className="heroCont">
         <div className="heroContext">
           Bringing<br/> Independent <br/> Farmers into the<br/>  Marketplace
+          {/* Welcome {currentUser.displayName ? currentUser.displayName : currentUser.email} */}
         </div>
         <div className="heroImgCont">
           <img src={HeroImg} className="heroImg" alt="heroImg"  />

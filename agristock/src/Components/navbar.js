@@ -20,8 +20,10 @@
 
 import React, { useEffect, useState } from 'react';
 import '../Styles/navbarnew.css';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import 'boxicons'
+import { doSignOut } from '../Firebase/auth';
+import { useAuth } from '../Context/AuthContext/authContext';
 const Navbar = () => {
 
 	const [isOpen, setIsOpen] = useState(false);
@@ -57,6 +59,10 @@ const Navbar = () => {
 	// 	  }
 	//   }
 
+	const { userLoggedIn } = useAuth();
+	const navigate = useNavigate();
+	// const { doSignOut } = useAuth();
+
 	return (
 		<div className='navCont'>
 			<nav>
@@ -68,7 +74,21 @@ const Navbar = () => {
 					<li><NavLink to="/" component={Link}>Home</NavLink></li>
 					<li><NavLink component={Link} to="/stocks">Stocks</NavLink></li>
 					<li><NavLink component={Link} to="/harvests">Harvests</NavLink></li>
-					<li><NavLink component={Link} to="/login">Login</NavLink></li>
+
+					{
+						userLoggedIn
+							?
+							<>
+								<li><NavLink onClick={() => { doSignOut().then(() => { navigate('/login') }) }} >Logout</NavLink></li>
+							</>
+							:
+							<>
+								<li><NavLink className='text-sm text-blue-600 underline' to={'/login'}>Login</NavLink></li>
+								<li><NavLink className='text-sm text-blue-600 underline' to={'/register'}>Register New Account</NavLink></li>
+							</>
+					}
+
+					{/* <li><NavLink component={Link} to="/login">Login</NavLink></li> */}
 					{/* <li className='close' onClick={toggleNav}><span>&times;</span></li> */}
 				</ul>
 			</nav>

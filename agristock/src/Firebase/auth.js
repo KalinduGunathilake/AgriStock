@@ -14,7 +14,16 @@ export const doCreateUserWithEmailAndPassword = async (email, password) => {
 };
 
 export const doSignInWithEmailAndPassword = (email, password) => {
-  return signInWithEmailAndPassword(auth, email, password);
+  return signInWithEmailAndPassword(auth, email, password)
+  .then(() => {
+    
+  })
+  .catch((error) => {
+    if (error.code === "auth/wrong-password") {
+      alert("Wrong password.");
+    } else if (error.code === "auth/email-already-in-use") {
+      alert("Email already in use.");
+  }})
 };
 
 export const doSignInWithGoogle = async () => {
