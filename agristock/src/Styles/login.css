@@ -12,10 +12,10 @@ body {
 }
 
 .login-container {
+  position: absolute;
   width: 380px;
   height: 400px;
   padding: 20px;
-  position: absolute;
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -72,7 +72,7 @@ body {
     margin: 30px auto 15px auto;
     display: block; 
   }
- 
+
   button:hover {
     background-color: #3a5af5;
   }
