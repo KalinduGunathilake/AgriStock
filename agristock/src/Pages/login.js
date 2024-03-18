@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import '../Styles/login.css';
 import backgroundImage from '../Images/logback.jpg';
-import { auth } from '../Config/firebaseConfiger';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { signInWithGoogle } from "../Config/firebaseConfiger";
+import {auth,signInWithGoogle } from "../Config/firebaseConfiger";
 
 const Login = () => {
   const [email, setEmail] = useState("");
