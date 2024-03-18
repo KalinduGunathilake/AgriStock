@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import Login from './Pages/Login';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Crops from './Pages/Crops';
-import Harvests from './Pages/HarvestsAvailable';
+import News from './Pages/News';
 import Create from './Pages/Create';
 import HarvestDetails from './Pages/HarvestDetails';
 import HarvestsAvailable from './Pages/HarvestsAvailable';
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/harvests",
-    element: <Harvests />,
+    element: <News/>,
   },
   {
     path: "/register-now",
