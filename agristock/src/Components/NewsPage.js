@@ -32,7 +32,7 @@ function NewsPage() {
           <div className="news-item" key={index}>
             <img src={article.poster} alt="News Poster" />
             <div className="news-details">
-              <h2>{article.title}</h2>
+              <h2 className='articleTitle'>{article.title}</h2>
               <p>{article.description}</p>
             </div>
           </div>

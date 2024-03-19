@@ -14,7 +14,7 @@
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
-   
+    
     background-color: #fafafa;
     padding: 5svh;
     border-radius: 20px;
@@ -24,7 +24,7 @@
     margin: 20px;
     width: 300px;
     transition: transform 0.2s ease; /* Add transition for smooth animation */
-    
+    cursor: pointer;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
@@ -36,6 +36,9 @@
   .news-item img {
     width: 100%;
     border-radius: 5px;
+  }
+  .articleTitle{
+    background-color:lightgreen;
   }
   
   .news-details {
@@ -49,6 +52,7 @@
   .news-details p {
     margin-bottom: 0;
   }
+  
   @media screen and (max-width: 768px){
     .latestnews{
         margin-top: 7rem;

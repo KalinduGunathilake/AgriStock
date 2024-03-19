@@ -5,11 +5,13 @@ import MoreDetails from "./Pages/HarvestDetails";
 import News from "./Pages/News";
 
 
+
 function App() {
   return (
     <div className="App">
       {/* <MoreDetails/> */}
-      <Home />
+      <Home /> 
+     
       
       
 
