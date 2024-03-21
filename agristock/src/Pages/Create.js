@@ -5,8 +5,7 @@ import { auth } from '../Config/firebaseConfiger';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 const Create = () => {
-  const [fristname, setFristname] = useState('');
-  const [lastname, setLastname] = useState('');
+  const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -28,40 +27,31 @@ const Create = () => {
 
   return (
     <div>
-      <h1 className="agristock-heading">AgriStock</h1>
-      <div className="background-container" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}></div>
-      <div className="create-container">
+      <h1 className="cr-agristock-heading">AgriStock</h1>
+      <div className="cr-background-container" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}></div>
+      <div className="cr-create-container">
         {/* Create form content */}
-        <h2>Create Account</h2>
-        <div className="radio-container">
-          <label>Farmer:
-            <input type="radio" name="accountType" value="farmer" />
+        <h2 className='create-head'>Create Account</h2>
+        <div className="cr-radio-container">
+          <label className='cr'>Farmer:
+            <input type="radio" className='cri'  name="accountType" value="farmer" />
           </label>
-          <label>Buyer:
-            <input type="radio" name="accountType" value="buyer" />
+          <label className='cr'>Buyer:
+            <input type="radio"className='cri' name="accountType" value="buyer" />
           </label>
         </div>
 
         <form onSubmit={handleSubmit}>
-          <div className="name-container">
-            <div className="input-container">
-              <label htmlFor="fristname">First Name:</label>
-              <input type="text" id="fristname" value={fristname} onChange={(e) => setFristname(e.target.value)} required />
-            </div>
-            <div className="input-container">
-              <label htmlFor="lastname">Last Name:</label>
-              <input type="text" id="lastname" value={lastname} onChange={(e) => setLastname(e.target.value)} required />
-            </div>
-          </div>
-
-          <label htmlFor="email">Email Address:</label>
-          <input type="email" id="email" value={email} onChange={(event) => setEmail(event.target.value)} />
-          <label htmlFor="number">Contact Number:</label>
-          <input type="text" id="number" value={number} onChange={(e) => setNumber(e.target.value)} required />
-          <label htmlFor="password">Password:</label>
-          <input type="password" id="password" value={password} onChange={(event) => setPassword(event.target.value)} />
-          <label htmlFor="confirmpassword">Confirm Password:</label>
-          <input type="password" id="confirmpassword" value={confirmpassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
+          <label htmlFor="name" className='cr'>Name:</label>
+          <input type="text" id="name" className='cri' value={name} onChange={(event) => setName(event.target.value)} />
+          <label htmlFor="email" className='cr'>Email Address:</label>
+          <input type="email" id="email" className='cri' value={email} onChange={(event) => setEmail(event.target.value)} />
+          <label htmlFor="number"className='cr'>Contact Number:</label>
+          <input type="text" id="number"className='cri' value={number} onChange={(e) => setNumber(e.target.value)} required />
+          <label htmlFor="password"className='cr'>Password:</label>
+          <input type="password" id="password" className='cri'value={password} onChange={(event) => setPassword(event.target.value)} />
+          <label htmlFor="confirmpassword"className='cr'>Confirm Password:</label>
+          <input type="password" id="confirmpassword"className='cri' value={confirmpassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
           <button className="signup" onClick={handleSubmit}>Sign Up</button>
         </form>
       </div>
