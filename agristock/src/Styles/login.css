@@ -1,9 +1,7 @@
-body {
-  background-color: #53D258;
-}
-.agristock-heading {
+
+.log-agristock-heading {
   position: absolute;
-  top: 8%;
+  top: 7%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: 'Lobster', cursive;
@@ -14,7 +12,7 @@ body {
 .login-container {
   position: absolute;
   width: 380px;
-  height: 400px;
+  height: 410px;
   padding: 20px;
   top: 55%;
   left: 50%;
@@ -22,35 +20,36 @@ body {
   background-color: #ede9e9;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: #444753 solid 1px;
   }
 
-  .background-container {
+  .log-background-container {
     position: absolute;
     top: 54%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    height: 500px;
+    height: 540px;  
     border-radius:15px;
     background-color: #ffffff;
     z-index: -1; 
   }
 
-  h2 {
+  .log-head {
     margin-top: 0;
     margin-bottom: 20px;
     text-align: center;
   }
   
-  label {
-    display: block;
-    height: 35px;
-    border-radius: 12px;
+  .logleb{
+  display: block;
+  height: 30px;
+  border-radius: 8px;
   }
   
-  input {
+  .log-in{
     width: 100%;
-    height: 40px;
+    height: 35px;
     padding: 5px;
     margin-bottom: 15px;
     border-radius: 12px;
@@ -73,10 +72,10 @@ body {
     display: block; 
   }
 
-  button:hover {
+ button.login:hover {
     background-color: #3a5af5;
   }
-  .container {
+  .sign-in-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -130,14 +129,13 @@ body {
   }
   @media only screen and (max-width: 768px) {
    
-  
-    .agristock-heading {
+   .log-agristock-heading {
       font-size: 40px; 
-      top: 15%; 
+      top: 7%; 
      
     }
   
-    .background-container {
+    .log-background-container {
       height: auto
     }
   }
@@ -145,4 +143,10 @@ body {
   .login-container {
     width: 85%;
   }
+.log-background-container {
+  width: 100%;
+  height: 500px;
+
+}
+
 }

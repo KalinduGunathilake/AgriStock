@@ -20,19 +20,19 @@ const Login = () => {
 
   return (
     <div>
-      <h1 className="agristock-heading">AgriStock</h1>
-      <div className="background-container" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}></div>
+      <h1 className="log-agristock-heading">AgriStock</h1>
+      <div className="log-background-container" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}></div>
       <div className="login-container">
         {/* Login form content */}
-        <h2>Welcome Back!</h2>
+        <h2 className='log-head'>Welcome Back!</h2>
     
-        <label htmlFor="email">Email Address:</label>
-        <input type="text" id="email" value={email} onChange={(event) => setEmail(event.target.value)} />
-        <label htmlFor="password">Password:</label>
-        <input type="password" id="password" value={password} onChange={(event) => setPassword(event.target.value)} />
+        <label htmlFor="email"className='logleb'> Email Address:</label>
+        <input type="text" className ="log-in" id="email" value={email} onChange={(event) => setEmail(event.target.value)} />
+        <label htmlFor="password"className='logleb'>Password:</label>
+        <input type="password"className ="log-in" id="password" value={password} onChange={(event) => setPassword(event.target.value)} />
         <button className="login" onClick={handleLogin}>Login</button>
       
-        <div className="container">
+        <div className="sign-in-container">
           <button className="google-signin" onClick={signInWithGoogle}>Sign in with Google</button>
         </div>
         <a href="/forgot-password" className="forgot-password-link">Forgot Password?</a>
