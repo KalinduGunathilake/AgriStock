@@ -104,9 +104,9 @@
   align-items: center;
   background-color: rgb(245, 245, 245);
   border-radius: 20px;
-  border: 1px solid green;
+  /* border: 1px solid green; */
   margin: 20px;
-  box-shadow: 0 0 30px #055a32;
+  /* box-shadow: 0 0 30px #055a32; */
 }
 
 .cropItem img {

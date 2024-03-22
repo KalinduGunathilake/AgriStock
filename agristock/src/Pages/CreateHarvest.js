@@ -1,19 +1,31 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import axios from 'axios';
 // import ObjectID from 'bson-objectid';
 // import ObjectId from 'bson-objectid'
 import { v4 as uuidv4 } from 'uuid';
 import databaseURL from '../Config/backendURL'
+import { ref, uploadBytes } from 'firebase/storage';
+import { imageDB } from '../Firebase/config.js';
+import { useAuth } from '../Context/AuthContext/authContext.jsx';
+// import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const CreateHarvest = () => {
 
-    const generateUUID = () => {
-        return uuidv4(); // Generate a random UUID
-    };
-    const objectID = generateUUID();
+    const { userLoggedIn } = useAuth();
+    console.log(userLoggedIn)
+
+
+
+    const harvestUUIDRef = useRef(uuidv4());
+    // const farmerID =;
+    // const [farmerID, setFarmerID] =  useState();
+    const [image, setImage] = useState(null);
+    const navigate = useNavigate();
+    const { currentUser } = useAuth()
 
     const [harvestData, setHarvestData] = useState({
-        _id: objectID,
+        uuid: harvestUUIDRef.current,
         cropName: '',
         harvestOwner: '',
         location: '',
@@ -22,6 +34,8 @@ const CreateHarvest = () => {
         expectedHarvestDate: '',
         pricePerKg: '',
         expectedQuantity: '',
+        img: '',
+        farmerID: currentUser.uid,
     });
     const handleChange = (e) => {
         setHarvestData({ ...harvestData, [e.target.name]: e.target.value });
@@ -32,7 +46,7 @@ const CreateHarvest = () => {
             // const response = await fetch(databaseURL + '/createCrop', harvestData);
             // console.log('Crop created:', response.data);
             // console.log('Data sent to MongoDB successfully!');
-            const response = await fetch(databaseURL + '/createCrop', {
+            const response = await fetch(databaseURL + '/createHarvest', {
                 method: 'post',
                 headers: {
                     'Content-Type': 'application/json',
@@ -41,17 +55,80 @@ const CreateHarvest = () => {
             });
             const data = await response.json();
             console.log('Crop created:', data);
+
+
             console.log('Data sent to MongoDB successfully!');
-        } catch (error) {
+
+
+            handleImageUpload();
+            setTimeout(() => {
+                navigate(-1);
+            }, 1000);
+        }
+
+        catch (error) {
             console.error('Error creating crop:', error);
         }
     };
+
+
+
+
+
+    // const handleImageChange = (e) => {
+    //     if (e.target.files[0]) {
+    //         setImage(e.target.files[0]);
+    //     }
+    // };
+
+    const handleImageUpload = () => {
+        if (image) {
+            //   const storageRef = firebase.storage().ref();
+            // const uuid = uuidv4();
+            // const imageRef = storageRef.child(`images/${objectID}`);
+
+            // imageRef.put(image).then(() => {
+            //     console.log('Image uploaded successfully!');
+            //     // You can perform additional tasks after successful upload
+            // }).catch((error) => {
+            //     console.error('Error uploading image: ', error);
+            // });
+
+
+            const storageRef = ref(imageDB, `images/${harvestUUIDRef.current}`);
+            uploadBytes(storageRef, image).then(() => {
+                console.log('Image uploaded successfully!');
+                // You can perform additional tasks after successful upload
+            }).catch((error) => {
+                console.error('Error uploading image: ', error);
+            });
+        } else {
+            console.error('No image selected!');
+        }
+    };
+
+    const handleFileChange = (e) => {
+        const selectedFile = e.target.files[0];
+        if (selectedFile) {
+            const allowedTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+            if (allowedTypes.includes(selectedFile.type)) {
+                setImage(selectedFile);
+            } else {
+                alert('Only JPG, JPEG, and PNG files are allowed.');
+                e.target.value = null; // Clear the file input
+            }
+        }
+    };
+
+
+
     return (
         <div>
+            {!userLoggedIn && (<Navigate to={'/home'} replace={true} />)}
             <h1>Create Crop</h1>
-            <h3>{objectID}</h3>
+            <h3>{harvestUUIDRef.current}</h3>
             <form onSubmit={handleSubmit}>
-                <input type="hidden" name="_id" value={objectID} /> {/* Hidden input for _id */}
+                {/* <input type="hidden" name="farmerID" value={useAuth().currentUser.uid} /> Hidden input for _id */}
                 <input type="text" name="cropName" placeholder="Crop Name" onChange={handleChange} required />
                 <input type="text" name="harvestOwner" placeholder="Name" onChange={handleChange} required />
                 <input type="text" name="location" placeholder="Location" onChange={handleChange} required />
@@ -60,6 +137,7 @@ const CreateHarvest = () => {
                 <input type="date" name="expectedHarvestDate" placeholder="Expected Harvest Date" onChange={handleChange} required />
                 <input type="number" name="pricePerKg" placeholder="Price Per Kg" onChange={handleChange} required />
                 <input type="text" name="expectedQuantity" placeholder="Expected Quantity" onChange={handleChange} required />
+                <input type="file" name="image" accept=".png, .jpg, .jpeg" onChange={handleFileChange} required />
                 <button type="submit">Submit</button>
             </form>
         </div>

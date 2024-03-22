@@ -18,10 +18,12 @@
 
 // export default Navbar
 
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import '../Styles/navbarnew.css';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import 'boxicons'
+import { doSignOut } from '../Firebase/auth';
+import { useAuth } from '../Context/AuthContext/authContext';
 const Navbar = () => {
 
 	const [isOpen, setIsOpen] = useState(false);
@@ -57,18 +59,38 @@ const Navbar = () => {
 	// 	  }
 	//   }
 
+	const { userLoggedIn } = useAuth();
+	const navigate = useNavigate();
+	// const { doSignOut } = useAuth();
+
 	return (
 		<div className='navCont'>
 			<nav>
 				<div className='logo'>AgriStock</div>
 				<div className='hamburger' onClick={toggleNav}>
-					<box-icon name='menu' id='navIcon'></box-icon>
+					<box-icon name='menu' id='navIcon' ></box-icon>
 				</div>
 				<ul className={`navbar ${isOpen ? 'open' : ''}`}>
 					<li><NavLink to="/" component={Link}>Home</NavLink></li>
 					<li><NavLink component={Link} to="/stocks">Stocks</NavLink></li>
 					<li><NavLink component={Link} to="/harvests">News</NavLink></li>
-					<li><NavLink component={Link} to="/login">Login</NavLink></li>
+
+					{/* <li><NavLink component={Link} to="/harvests">Harvests</NavLink></li> */}
+
+					{
+						userLoggedIn
+							?
+							<>
+								<li><NavLink to={'/profile'} ><box-icon name='user-circle' className='text-sm text-blue-600'></box-icon></NavLink></li>
+							</>
+							:
+							<>
+								<li><NavLink className='text-sm text-blue-600 underline' to={'/login'}>Login</NavLink></li>
+								<li><NavLink className='text-sm text-blue-600 underline' to={'/register'}>Register</NavLink></li>
+							</>
+					}
+
+					{/* <li><NavLink component={Link} to="/login">Login</NavLink></li> */}
 					{/* <li className='close' onClick={toggleNav}><span>&times;</span></li> */}
 				</ul>
 			</nav>
