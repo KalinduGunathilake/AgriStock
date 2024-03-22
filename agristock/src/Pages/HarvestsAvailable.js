@@ -2,13 +2,18 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../Components/navbar'
 import "../Styles/harvestsAvailable.css"
 import carrotImage from "../Images/CropImages/Carrot.png";
-import { Link, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import backendURL from '../Config/backendURL';
+import Loader from '../Components/Loader';
+import { useAuth } from '../Context/AuthContext/authContext';
 
 const HarvestsAvailable = () => {
 
+
+	const [isLoading, setIsLoading] = useState(true);
 	const { cropName } = useParams(); 
 	const [harvests, setHarvests] = useState([]);
+	const { userLoggedIn } = useAuth();
 	useEffect(() => {
 		const fetchHarvests = async () => {
 			try {
@@ -23,10 +28,15 @@ const HarvestsAvailable = () => {
 			}
 		};
 
-		fetchHarvests();
+		fetchHarvests().then(() => {
+			setIsLoading(false);
+		});
 	}, [cropName]);
 
 
+	if (isLoading) {
+		return <Loader/>;
+	}
 	const showHarvests = () => {
 		if (harvests.length > 0) {
 			console.log(harvests);
@@ -79,11 +89,12 @@ const HarvestsAvailable = () => {
 										<p className='harvestDateNum'>{dateDiff(harvest.expectedHarvestDate) } days</p>
 									</div>
 									{/* <h3>{harvest.name}</h3> */}
-									<Link to={`/stocks/${cropName}/${harvest._id}`} className='moreInfoBtn'>More Info</Link>
+									<Link to={ userLoggedIn ?  `/stocks/${cropName}/${harvest._id}` : '/login'} className='moreInfoBtn'>More Details</Link>
 								</div>
 							</div>
 						))}
 					</div>
+					
 				) : (
 					<p>No harvests available</p>
 				)}

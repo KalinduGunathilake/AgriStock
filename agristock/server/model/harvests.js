@@ -42,6 +42,10 @@ const harvestsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    farmerID: {
+        type: String,
+        required: true
+    },
 });
 
 module.exports = mongoose.model('Harvests', harvestsSchema)

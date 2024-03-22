@@ -1,0 +1,91 @@
+.profileCont {
+    margin-top: 13vh;
+    min-height: calc(100svh - 13vh);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    border: white 1px solid;
+    padding: 20px;
+}
+.profileDivider{
+    width: 90%;
+    height: 01px;
+    background-color: rgba(0, 0, 0, 0.175);
+    /* border: black 0.5px solid; */
+}
+.profileUserDetailsCont {
+    display: flex;
+    align-items: center;
+    /* padding: 20px; */
+}
+
+.profileName {
+    padding: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.profileUserCont {
+    width: 30vw;
+    min-width: 300px;
+    height: 40vh;
+    background-color: rgba(255, 255, 255, 0.579);
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+
+}
+.profileText {
+    font-size: 15px;
+    font-weight: 400;
+
+}
+
+.profileImgCont {
+    width: 50vw;
+    height: 50vw;
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 100px;
+    border: 1px solid rgba(0, 0, 0, 0.474);
+}
+
+.profileHarvestCard {
+    background-color: rgba(255, 255, 255, 0.579);
+    /* width: auto; */
+    padding: 20px;
+    border-radius: 20px;
+    margin: 10px;
+    /* min-width: 300px; */
+}
+
+@media only screen and (max-width: 768px) {
+    .profileCont {
+        flex-direction: column;
+        /* width: 100%; */
+        /* padding: 0; */
+    }
+    .profileUserDetailsCont {
+        flex-direction: row-reverse;
+        align-items: center;
+    }
+    .profileUserCont {
+        /* padding: 0; */
+        min-width: none;
+        width: 90vw;
+    }
+
+    .profileHarvestsCont {
+        margin-top: 20px;
+    }
+    .profileHarvestCard {
+        min-width: none ;
+        width: 90vw;
+        margin: 10px 0;
+    }
+}

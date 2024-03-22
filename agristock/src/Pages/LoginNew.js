@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Navigate, Link } from 'react-router-dom'
 import { doSignInWithEmailAndPassword, doSignInWithGoogle } from '../Firebase/auth'
 import { useAuth } from '../Context/AuthContext/authContext'
+import backendURL from '../Config/backendURL'
 
 const Login = () => {
     const { userLoggedIn } = useAuth()
@@ -10,6 +11,7 @@ const Login = () => {
     const [password, setPassword] = useState('')
     const [isSigningIn, setIsSigningIn] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
+    const { currentUser } = useAuth()
 
     const onSubmit = async (e) => {
         e.preventDefault()
@@ -18,6 +20,7 @@ const Login = () => {
             await doSignInWithEmailAndPassword(email, password)
             // doSendEmailVerification()
         }
+        
     }
 
     const onGoogleSignIn = (e) => {
@@ -27,6 +30,45 @@ const Login = () => {
             doSignInWithGoogle().catch(err => {
                 setIsSigningIn(false)
             })
+        }
+
+    }
+    const checkUserExists = (uid) => {
+        console.log(uid)
+        fetch(backendURL + `/checkuser?firebaseID=${uid}`)
+            .then(response =>
+                response.json()
+            )
+            .then(exists => {
+                // console.log(data)
+                if (!exists) {
+                    sendDetailsToMongoDB()
+                    // navigate('/home')
+                } else {
+                    console.log("user already exists")
+                }
+            })
+            .catch(err =>
+                console.log(err)
+            )
+    }
+
+    const sendDetailsToMongoDB = async () => {
+
+        try {
+            await fetch(backendURL + '/createUser', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ firebaseID: currentUser.uid, name: '', harvests: [], role: '', profilepic: '' }),
+              })
+              .then((response) => {
+                console.log("success:", response.ok);
+              })
+
+        } catch (error) {
+            console.error(error);
         }
     }
 

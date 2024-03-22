@@ -3,13 +3,15 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
-  sendEmailVerification,
+  // sendEmailVerification,
   updatePassword,
   signInWithPopup,
   GoogleAuthProvider,
+  signInWithRedirect,
 } from "firebase/auth";
 
 export const doCreateUserWithEmailAndPassword = async (email, password) => {
+  
   return createUserWithEmailAndPassword(auth, email, password);
 };
 
@@ -29,7 +31,23 @@ export const doSignInWithEmailAndPassword = (email, password) => {
 export const doSignInWithGoogle = async () => {
   const provider = new GoogleAuthProvider();
   const result = await signInWithPopup(auth, provider);
+
+  // const result = await signInWithRedirect(auth, provider);
   const user = result.user;
+
+  // const provider = new GoogleAuthProvider();
+  // const result = await signInWithRedirect(auth, provider);
+
+  // const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+  // if (isMobile) {
+  //   const result = await signInWithRedirect(auth, provider);
+  //   const user = result.user;
+  // } else {
+  //   const result = await signInWithPopup(auth, provider);
+  //   const user = result.user;
+  // }
+
 
   // add user to firestore
 };
@@ -46,8 +64,8 @@ export const doPasswordChange = (password) => {
   return updatePassword(auth.currentUser, password);
 };
 
-export const doSendEmailVerification = () => {
-  return sendEmailVerification(auth.currentUser, {
-    url: `${window.location.origin}/home`,
-  });
-};
+// export const doSendEmailVerification = () => {
+//   return sendEmailVerification(auth.currentUser, {
+//     url: `${window.location.origin}/home`,
+//   });
+// };

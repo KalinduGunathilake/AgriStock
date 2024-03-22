@@ -24,8 +24,9 @@
     width: 250px;
     height: 350px;
     border: 2px solid #6363637a;
-    border-radius: 20px;
+    border-radius: 40px;
     margin: 20px;
+    border-color: #A5EBA8;
   
 }
 
@@ -47,10 +48,10 @@
 }
 
 .harvestImage {
-    
+    border-color: #A5EBA8;
     width: 85%;
     height: 40%;
-    border-radius: 20px;
+    border-radius: 40px;
     object-fit: cover;
     background-color: rgb(220, 220, 220);
 }
@@ -78,7 +79,15 @@
     
 }
 
+.moreInfoBtn{
+    background-color: #7DEFFF;
+    border-radius: 40px;
+    padding: 3%;
 
+     
+    
+   
+}
 @media only screen and (max-width: 768px) {
     .harvestsCont{
         padding: 15px;
@@ -114,4 +123,5 @@
         padding: 10px;
 
     }
+   
 }

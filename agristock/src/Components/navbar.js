@@ -18,7 +18,7 @@
 
 // export default Navbar
 
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import '../Styles/navbarnew.css';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import 'boxicons'
@@ -73,18 +73,20 @@ const Navbar = () => {
 				<ul className={`navbar ${isOpen ? 'open' : ''}`}>
 					<li><NavLink to="/" component={Link}>Home</NavLink></li>
 					<li><NavLink component={Link} to="/stocks">Stocks</NavLink></li>
-					<li><NavLink component={Link} to="/harvests">Harvests</NavLink></li>
+					<li><NavLink component={Link} to="/harvests">News</NavLink></li>
+
+					{/* <li><NavLink component={Link} to="/harvests">Harvests</NavLink></li> */}
 
 					{
 						userLoggedIn
 							?
 							<>
-								<li><NavLink onClick={() => { doSignOut().then(() => { navigate('/login') }) }} >Logout</NavLink></li>
+								<li><NavLink to={'/profile'} ><box-icon name='user-circle' className='text-sm text-blue-600'></box-icon></NavLink></li>
 							</>
 							:
 							<>
 								<li><NavLink className='text-sm text-blue-600 underline' to={'/login'}>Login</NavLink></li>
-								<li><NavLink className='text-sm text-blue-600 underline' to={'/register'}>Register New Account</NavLink></li>
+								<li><NavLink className='text-sm text-blue-600 underline' to={'/register'}>Register</NavLink></li>
 							</>
 					}
 
