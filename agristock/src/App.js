@@ -6,12 +6,13 @@ import News from "./Pages/News";
 
 
 
+
 function App() {
   return (
     <div className="App">
       {/* <MoreDetails/> */}
       <Home />
-    
+
       
       
 

@@ -7,10 +7,10 @@ import Login from './Pages/Login';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Crops from './Pages/Crops';
 import News from './Pages/News';
-import Create from './Pages/Create';
 import HarvestDetails from './Pages/HarvestDetails';
 import HarvestsAvailable from './Pages/HarvestsAvailable';
 import CreateHarvest from './Pages/CreateHarvest';
+import Register from './Pages/Register';
 
 
 // Assuming crops are fetched successfully
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/register-now",
-    element: <Create />,
+    element: <Register />,
   },
   {
     path: "/stocks/:cropName/:harvestID",

@@ -1,37 +1,87 @@
-import React, { useState } from 'react'
-import { Navigate, Link } from 'react-router-dom'
-import { doSignInWithEmailAndPassword, doSignInWithGoogle } from '../Firebase/auth'
+import React, { useEffect, useState } from 'react'
+import { Navigate, Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../Context/AuthContext/authContext'
+import { doCreateUserWithEmailAndPassword, doSignInWithGoogle } from '../Firebase/auth'
+import { auth } from '../Firebase/config'
+import { fetchSignInMethodsForEmail } from 'firebase/auth';
 import backendURL from '../Config/backendURL'
-import '../Styles/login.css';
+import AdditionalInfo from '../Components/AdditionalInfo'
+import '../Styles/register.css';
 
-const Login = () => {
-    const { userLoggedIn } = useAuth()
+const Register = () => {
+
+    const navigate = useNavigate()
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [isSigningIn, setIsSigningIn] = useState(false)
-    const [errorMessage, setErrorMessage] = useState('')
+    const [confirmPassword, setconfirmPassword] = useState('')
+    const [isRegistering, setIsRegistering] = useState(false)
+    const [errorMessage,] = useState('')
+
+    const { userLoggedIn } = useAuth()
     const { currentUser } = useAuth()
+
+    const [isSigningIn, setIsSigningIn] = useState(false)
+
+    const [useruid, setUseruid] = useState('')
+
+
+
+    useEffect(() => {
+        if (userLoggedIn) {
+            setUseruid(currentUser.uid)
+            // console.log(useruid)
+            // console.log(currentUser)
+            console.log(currentUser.uid)
+            checkUserExists(currentUser.uid)
+            // console.log(userLoggedIn)
+            // sendDetailsToMongoDB(currentUser)
+        }
+    }, [currentUser])
+
 
     const onSubmit = async (e) => {
         e.preventDefault()
-        if(!isSigningIn) {
-            setIsSigningIn(true)
-            await doSignInWithEmailAndPassword(email, password)
-            // doSendEmailVerification()
+        if (!isRegistering) {
+            setIsRegistering(true)
+            await doCreateUserWithEmailAndPassword(email, password)
+                .then(() => {
+                    // sendDetailsToMongoDB()
+                    // console.log
+
+                })
+                .catch((error) => {
+                    if (error.code === "auth/wrong-password") {
+                        alert("Wrong password.");
+                    } else if (error.code === "auth/email-already-in-use") {
+                        alert("Email already in use.");
+                        // navigate(0)
+                    } else {
+                        console.log(error)
+                    }
+                })
         }
-        
+
+        //send details to mongodb
+
     }
 
     const onGoogleSignIn = (e) => {
         e.preventDefault()
         if (!isSigningIn) {
             setIsSigningIn(true)
-            doSignInWithGoogle().catch(err => {
-                setIsSigningIn(false)
-            })
+            doSignInWithGoogle()
+                .then(() => {
+                    console.log("came to then")
+                    // checkUserExists()
+                })
+                .catch(err => {
+                    setIsSigningIn(false)
+                    console.log("did not pass" + err)
+                })
         }
 
+        //send details to mongodb
     }
     const checkUserExists = (uid) => {
         console.log(uid)
@@ -43,7 +93,7 @@ const Login = () => {
                 // console.log(data)
                 if (!exists) {
                     sendDetailsToMongoDB()
-                    // navigate('/home')
+                    navigate('/additionalInfo')
                 } else {
                     console.log("user already exists")
                 }
@@ -53,9 +103,28 @@ const Login = () => {
             )
     }
 
-    const sendDetailsToMongoDB = async () => {
+    const sendDetailsToMongoDB = async (currentUserNew) => {
+        console.log("ready to send details to mongodb")
+        console.log(userLoggedIn)
+        console.log(currentUser.uid)
 
         try {
+            // await fetch(backendURL + '/createUser?firebaseID=' + currentUser.uid )
+            // .then(response => {
+            //     console.log("success:", response.ok);
+            // })
+
+            // await fetch(backendURL + '/createUser', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify({ firebaseID: currentUser.uid })
+            // })
+            // .then(response => {
+            //     console.log("success:", response.ok);
+            // })
+
             await fetch(backendURL + '/createUser', {
                 method: 'POST',
                 headers: {
@@ -70,22 +139,24 @@ const Login = () => {
         } catch (error) {
             console.error(error);
         }
+
     }
 
     return (
-        <div>
+        <>
             {userLoggedIn && (<Navigate to={'/home'} replace={true} />)}
 
             <main className="w-full h-screen flex self-center place-content-center place-items-center">
                 <div className="w-96 text-gray-600 space-y-5 p-4 shadow-xl border rounded-xl">
-                    <div className="text-center">
+                    <div className="text-center mb-6">
                         <div className="mt-2">
-                            <h3 className="text-gray-800 text-xl font-semibold sm:text-2xl">Welcome Back</h3>
+                            <h3 className="text-gray-800 text-xl font-semibold sm:text-2xl">Create a New Account</h3>
                         </div>
+
                     </div>
                     <form
                         onSubmit={onSubmit}
-                        className="space-y-5"
+                        className="space-y-4"
                     >
                         <div>
                             <label className="text-sm text-gray-600 font-bold">
@@ -96,20 +167,34 @@ const Login = () => {
                                 autoComplete='email'
                                 required
                                 value={email} onChange={(e) => { setEmail(e.target.value) }}
-                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
+                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:indigo-600 shadow-sm rounded-lg transition duration-300"
                             />
                         </div>
-
 
                         <div>
                             <label className="text-sm text-gray-600 font-bold">
                                 Password
                             </label>
                             <input
+                                disabled={isRegistering}
                                 type="password"
-                                autoComplete='current-password'
+                                autoComplete='new-password'
                                 required
                                 value={password} onChange={(e) => { setPassword(e.target.value) }}
+                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
+                            />
+                        </div>
+
+                        <div>
+                            <label className="text-sm text-gray-600 font-bold">
+                                Confirm Password
+                            </label>
+                            <input
+                                disabled={isRegistering}
+                                type="password"
+                                autoComplete='off'
+                                required
+                                value={confirmPassword} onChange={(e) => { setconfirmPassword(e.target.value) }}
                                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
                             />
                         </div>
@@ -120,16 +205,16 @@ const Login = () => {
 
                         <button
                             type="submit"
-                            disabled={isSigningIn}
-                            className={`w-full px-4 py-2 text-white font-medium rounded-lg ${isSigningIn ? 'bg-gray-300 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700 hover:shadow-xl transition duration-300'}`}
+                            disabled={isRegistering}
+                            className={`w-full px-4 py-2 text-white font-medium rounded-lg ${isRegistering ? 'bg-gray-300 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700 hover:shadow-xl transition duration-300'}`}
                         >
-                            {isSigningIn ? 'Signing In...' : 'Sign In'}
+                            {isRegistering ? 'Signing Up...' : 'Sign Up'}
                         </button>
+                        <div className="text-sm text-center">
+                            Already have an account? {'   '}
+                            <Link to={'/login'} className="text-center text-sm hover:underline font-bold">Continue</Link>
+                        </div>
                     </form>
-                    <p className="text-center text-sm">Don't have an account? <Link to={'/register'} className="hover:underline font-bold">Sign up</Link></p>
-                    <div className='flex flex-row text-center w-full'>
-                        <div className='border-b-2 mb-2.5 mr-2 w-full'></div><div className='text-sm font-bold w-fit'>OR</div><div className='border-b-2 mb-2.5 ml-2 w-full'></div>
-                    </div>
                     <button
                         disabled={isSigningIn}
                         onClick={(e) => { onGoogleSignIn(e) }}
@@ -151,8 +236,8 @@ const Login = () => {
                     </button>
                 </div>
             </main>
-        </div>
+        </>
     )
 }
 
-export default Login
+export default Register
