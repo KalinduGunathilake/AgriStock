@@ -8,7 +8,6 @@ import Login from './Pages/LoginNew';
 import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Crops from './Pages/Crops';
 import News from './Pages/News';
-import Create from './Pages/Create';
 import HarvestDetails from './Pages/HarvestDetails';
 import HarvestsAvailable from './Pages/HarvestsAvailable';
 import CreateHarvest from './Pages/CreateHarvest';
@@ -17,6 +16,7 @@ import { AuthProvider, useAuth } from './Context/AuthContext/authContext';
 import Home from './Pages/Home';
 import Profile from './Pages/Profile';
 import AdditionalInfo from './Pages/AdditionalInfo';
+
 
 // const userLoggedIn = getUserLoggedIn();
 // const { userLoggedIn } = useAuth()
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/register-now",
-    element: <Create />,
+    element: <Register />,
   },
   {
     path: "/stocks/:cropName/:harvestID",

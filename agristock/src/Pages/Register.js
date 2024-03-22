@@ -6,7 +6,7 @@ import { auth } from '../Firebase/config'
 import { fetchSignInMethodsForEmail } from 'firebase/auth';
 import backendURL from '../Config/backendURL'
 import AdditionalInfo from '../Components/AdditionalInfo'
-// import { auth } from "./config.js";
+import '../Styles/register.css';
 
 const Register = () => {
 

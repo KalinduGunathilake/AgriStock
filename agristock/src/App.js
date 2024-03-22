@@ -4,6 +4,8 @@ import Loader from "./Components/Loader";
 // import { Hearts } from "react-loader-spinner";
 
 
+
+
 function App() {
 
   const [isLoading, setIsLoading] = useState(true);
@@ -31,6 +33,7 @@ function App() {
     
     <div className="App">
       <Home />
+
       
       
 
