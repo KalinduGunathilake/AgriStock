@@ -12,7 +12,7 @@
 .login-container {
   position: absolute;
   width: 380px;
-  height: 410px;
+  height: 430px;
   padding: 20px;
   top: 55%;
   left: 50%;
@@ -104,49 +104,51 @@
   background-color: #3e57f5;
   }
 
-  .forgot-password-link {
-    position: absolute;
-    bottom: 10px;
-    left: 20px;
-    color: #03ac05; 
-    text-decoration: none;
-    font-size: 14px; 
-  }
-  .forgot-password-link:hover {
-    color: #3e57f5; 
-  }
 
   .register-now{
-    position: absolute;
+    position: fixed;
     bottom: 10px;
-    right:  20px;
+    right:  45px;
     color: #03ac05; 
     text-decoration: none;
-    font-size: 14px
+    font-size: 14.5px;
   }
   .register-now:hover{
-    color:#3e57f5;
+    color:#3e57f5;  
+  }
+
+  .text{
+    position: absolute;
+    margin-left: 10px;
+    bottom: 10px;  
+    font-size: 14.5px;
+      
   }
   @media only screen and (max-width: 768px) {
    
    .log-agristock-heading {
       font-size: 40px; 
-      top: 7%; 
-     
+      top: 7%;    
     }
-  
+ 
     .log-background-container {
-      height: auto
+      height: 500px;
     }
   }
   @media only screen and (max-width:420px) {
   .login-container {
     width: 85%;
   }
-.log-background-container {
+
+  .log-background-container {
   width: 100%;
   height: 500px;
 
+}
+
+
+.text{
+  width: 50%;
 }
 
 }
