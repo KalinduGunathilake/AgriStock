@@ -17,8 +17,8 @@ const Login = () => {
 
   return (
   <div>
-    <h1 className="agristock-heading">AgriStock</h1>
-    <div className="background-container" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}></div>
+    <h1 className="login-agristock-heading">AgriStock</h1>
+    <div className="login-background-container" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}></div>
     <div className="login-container">
         {/* Login form content */}
       <h2>Welcome Back!</h2>
@@ -27,12 +27,12 @@ const Login = () => {
         <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} required />
         <label htmlFor="password">Password:</label>
         <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        <button class="login" onClick={handleSubmit}>Login</button>
+        <button class="login-button" onClick={handleSubmit}>Login</button>
       </form>
       
-      <button class="google-signin" onClick={handleGoogleSignIn}>Sign in with Google</button>
-      <a href="/forgot-password" className="forgot-password-link">Forgot Password?</a>
-      <a href="/register-now" className="register-now">Register Now</a>
+      <button class="google-signin-button" onClick={handleGoogleSignIn}>Sign in with Google</button>
+      <a href="/forgot-password" className="login-forgot-password-link">Forgot Password?</a>
+      <a href="/register-now" className="login-register-now">Register Now</a>
     </div>
   </div>
   );

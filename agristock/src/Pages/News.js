@@ -1,7 +1,8 @@
 import React from 'react'
-
+import Navbar from "../Components/navbar";
 import NewsPage from '../Components/NewsPage'
-import Navbar from '../Components/navbar'
+
+
 
 
 
