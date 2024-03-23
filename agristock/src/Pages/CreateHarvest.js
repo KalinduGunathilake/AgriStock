@@ -9,6 +9,8 @@ import { imageDB } from '../Firebase/config.js';
 import { useAuth } from '../Context/AuthContext/authContext.jsx';
 // import { Navigate } from 'react-router-dom';
 import { Navigate, useNavigate } from 'react-router-dom';
+import "../Styles/createHarvest.css"
+import Navbar from '../Components/navbar.js';
 
 const CreateHarvest = () => {
 
@@ -27,10 +29,10 @@ const CreateHarvest = () => {
     const [harvestData, setHarvestData] = useState({
         uuid: harvestUUIDRef.current,
         cropName: '',
-        harvestOwner: '',
+        harvestOwner: currentUser.displayName ? currentUser.displayName  : '',
         location: '',
         contactNumber: '',
-        listedOn: '',
+        listedOn: new Date().toISOString(),
         expectedHarvestDate: '',
         pricePerKg: '',
         expectedQuantity: '',
@@ -125,21 +127,27 @@ const CreateHarvest = () => {
     return (
         <div>
             {!userLoggedIn && (<Navigate to={'/home'} replace={true} />)}
-            <h1>Create Crop</h1>
-            <h3>{harvestUUIDRef.current}</h3>
-            <form onSubmit={handleSubmit}>
-                {/* <input type="hidden" name="farmerID" value={useAuth().currentUser.uid} /> Hidden input for _id */}
-                <input type="text" name="cropName" placeholder="Crop Name" onChange={handleChange} required />
-                <input type="text" name="harvestOwner" placeholder="Name" onChange={handleChange} required />
-                <input type="text" name="location" placeholder="Location" onChange={handleChange} required />
-                <input type="text" name="contactNumber" placeholder="Contact Number" onChange={handleChange} required />
-                <input type="date" name="listedOn" placeholder="Listed On" onChange={handleChange} required />
-                <input type="date" name="expectedHarvestDate" placeholder="Expected Harvest Date" onChange={handleChange} required />
-                <input type="number" name="pricePerKg" placeholder="Price Per Kg" onChange={handleChange} required />
-                <input type="text" name="expectedQuantity" placeholder="Expected Quantity" onChange={handleChange} required />
-                <input type="file" name="image" accept=".png, .jpg, .jpeg" onChange={handleFileChange} required />
-                <button type="submit">Submit</button>
-            </form>
+            <Navbar />
+            <div className='createHarvestContainer'>
+                <h3 className='createHarvestTitle'>Create a Harvest Listing</h3>
+                {/* <h3>{harvestUUIDRef.current}</h3> */}
+                <form onSubmit={handleSubmit} className='createForm'>
+                    <div className='createFormInputs'>
+                        <input className='imageInput' type="file" name="image" accept=".png, .jpg, .jpeg" onChange={handleFileChange} required />
+                        <input className='inputField' type="text" name="cropName" placeholder="Crop Name" onChange={handleChange}  required />
+                        <input className='inputField' type="text" name="harvestOwner" placeholder="Name" onChange={handleChange} value={currentUser.displayName ? currentUser.displayName  : ''} required />
+                        <input className='inputField' type="text" name="location" placeholder="Location (e.g. street address, city, state, zip)" onChange={handleChange} required />
+                        <input className='inputField' type="text" name="contactNumber" placeholder="Contact Number" onChange={handleChange} required />
+                        {/* <input className='inputField' type="hidden" name="listedOn" value={new Date().toISOString()} onChange={handleChange} /> */}
+                        <input className='inputField' type="date" name="expectedHarvestDate" placeholder="Expected Harvest Date" onChange={handleChange} required />
+                        <input className='inputField' type="number" name="pricePerKg" placeholder="Price Per Kg" onChange={handleChange} required />
+                        <input className='inputField' type="text" name="expectedQuantity" placeholder="Expected Quantity" onChange={handleChange} required />
+                    </div>
+                    {/* <input type="hidden" name="farmerID" value={useAuth().currentUser.uid} /> Hidden input for _id */}
+
+                    <button type="submit" className='submitButton'>Submit</button>
+                </form>
+            </div>
         </div>
     )
 }

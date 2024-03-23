@@ -215,3 +215,26 @@ app.get('/getnews', async (req, res) => {
         console.log(err);
     }
 })
+
+
+
+app.delete('/deleteHarvest', async (req, res) => {
+    const { uuid } = req.query;
+
+    try {
+        const deletedHarvest = await Harvests.findOneAndDelete({ uuid: uuid });
+
+        if (!deletedHarvest) {
+            return res.status(404).json({ message: 'Harvest not found' });
+        }
+        await Users.findOneAndUpdate(
+            { harvests: uuid }, // Filter
+            { $pull: { harvests: uuid } }, // Update using $pull
+        );
+
+        res.status(200).json({ message: 'Harvest successfully deleted' });
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+});
+

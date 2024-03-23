@@ -31,7 +31,7 @@ function HarvestDetails() {
 					console.error('Invalid data format:', data);
 				}
 			})
-			.then(() => fetchImageUrl())
+			// .then(() => fetchImageUrl())
 			.catch(error => console.log('Error fetching crops:', error));
 	}, []);
 
@@ -50,16 +50,36 @@ function HarvestDetails() {
 	// }, [harvestDetails.uuid]);
 
 
-	const fetchImageUrl = async () => {
-		console.log("entered function")
-		try {
-			const imageRef = ref(imageDB, `images/${harvestDetails.uuid}`);
-			const url = await getDownloadURL(imageRef);
-			setImageUrl(url);
-		} catch (error) {
-			console.error('Error fetching image: ', error);
-		}
-	};
+	useEffect(() => {
+
+
+		// const extensionsToTry = ['.png', '.jpg', '.jpeg'];
+		// let foundImageUrl = null;
+
+		// for (const extension of extensionsToTry) {
+		// 	try {
+		// 		const imageRef = ref(imageDB, `images/${harvestDetails.uuid}${extension}`);
+		// 		const url = await getDownloadURL(imageRef);
+		// 		foundImageUrl = url;
+		// 		break; // Stop trying if image is found
+		// 	} catch (error) {
+		// 		console.error(`Error fetching image with ${extension} extension: `, error);
+		// 	}
+		// }
+		const fetchImageUrl = async () => {
+			console.log("entered function")
+			try {
+				const imageRef = ref(imageDB, `images/${imageName}`);
+				const url = await getDownloadURL(imageRef);
+				setImageUrl(url);
+				console.log("Image Url :" + url)
+			} catch (error) {
+				console.error('Error fetching image: ', error);
+			}
+		};
+
+		fetchImageUrl();
+	}, [imageName]);
 
 	function dateDiff(dateString) {
 		const futureDate = new Date(dateString);
@@ -80,7 +100,7 @@ function HarvestDetails() {
 		// }
 	}
 
-	showCrops();
+	// showCrops();
 	return (
 
 		<div>
@@ -88,7 +108,12 @@ function HarvestDetails() {
 			<div className='harvestDetailsCont'>
 				<div className='priorityIcon'>Priority</div>
 				<div className='harvestDetailsLeftCont'>
-					<img className='harvestDetailsImg' src={harvestDetails.farmerID} />
+					{/* <img className='harvestDetailsImg' src={imageUrl} /> */}
+					{imageUrl ? (
+						<img src={imageUrl} alt="Harvest" />
+					) : (
+						<p>Loading image...</p>
+					)}
 					<div className='harvestDetailsLeftBottomCont'>
 						<div className='harvestDetailsLeftBottomLeftCont'>
 							<h3 className='harvestDetailsOwner'>{harvestDetails.harvestOwner}</h3>

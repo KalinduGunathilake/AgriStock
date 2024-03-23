@@ -18,13 +18,17 @@
 
 // export default Navbar
 
-import React, {  useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import '../Styles/navbarnew.css';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import 'boxicons'
 import { doSignOut } from '../Firebase/auth';
 import { useAuth } from '../Context/AuthContext/authContext';
 const Navbar = () => {
+
+	useEffect(() => {
+		document.body.style.overflow = 'auto';
+	}, []);
 
 	const [isOpen, setIsOpen] = useState(false);
 
