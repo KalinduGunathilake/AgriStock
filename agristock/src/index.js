@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 // import Login from './Pages/Login';
-import Login from './Pages/LoginNew';
+import Login from './Pages/Login';
 import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Crops from './Pages/Crops';
 import News from './Pages/News';

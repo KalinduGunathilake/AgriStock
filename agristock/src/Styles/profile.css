@@ -117,7 +117,7 @@
 .profileHarvestsCont .upcoming {
     padding: 0 20px;
     color: white;
-    font-size: ;
+    /* font-size: ; */
 }
 
 .profileHarvestTopCont {
@@ -205,11 +205,11 @@
         /* width: 100%; */
         /* padding: 0; */
     }
-    .profileUserDetailsCont {
-        /* flex-direction: row-reverse; */
-        /* align-items: space-evenly; */
-        /* justify-content: flex-start; */
-    }
+    /* .profileUserDetailsCont {
+        flex-direction: row-reverse;
+        align-items: space-evenly;
+        justify-content: flex-start;
+    } */
     .profileUserCont {
         /* padding: 0; */
         height: 300px;
