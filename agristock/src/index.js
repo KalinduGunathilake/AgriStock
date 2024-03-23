@@ -16,6 +16,8 @@ import { AuthProvider, useAuth } from './Context/AuthContext/authContext';
 import Home from './Pages/Home';
 import Profile from './Pages/Profile';
 import AdditionalInfo from './Pages/AdditionalInfo';
+import UpdateHarvest from './Components/UpdateHarvest';
+import UpdateProfile from './Components/UpdateProfile';
 
 
 // const userLoggedIn = getUserLoggedIn();
@@ -62,6 +64,14 @@ const router = createBrowserRouter([
   {
     path: "/createHarvest",
     element: <CreateHarvest />,
+  },
+  {
+    path: "/updateharvest/:harvestID",
+    element: <UpdateHarvest />,
+  },
+  {
+    path: "/updateprofile/:userID",
+    element: <UpdateProfile />,
   },
   {
     path: "/profile",

@@ -11,6 +11,7 @@ const AdditionalInfo = () => {
         // uuid: harvestUUIDRef.current,
         name: '',
         role: '',
+        contactNo: '',
         // profilePic: '',
 
     });
@@ -67,6 +68,8 @@ const AdditionalInfo = () => {
         <div>
             <form onSubmit={handleInfoSubmit}>
                 <input type="text" name="name" placeholder="Full Name" required onChange={handleChange} />
+                <input type="text" name="contactNo" placeholder="+94123456789" required onChange={handleChange} />
+
                 <label onChange={handleChange}>
                     <input type="radio" name="role" value="buyer" /> Buyer<br />
                     <input type="radio" name="role" value="farmer" /> Farmer<br />
