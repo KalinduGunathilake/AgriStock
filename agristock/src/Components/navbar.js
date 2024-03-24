@@ -18,13 +18,19 @@
 
 // export default Navbar
 
-import React, {  useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import '../Styles/navbarnew.css';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import 'boxicons'
 import { doSignOut } from '../Firebase/auth';
 import { useAuth } from '../Context/AuthContext/authContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleUser } from '@fortawesome/free-regular-svg-icons';
 const Navbar = () => {
+
+	useEffect(() => {
+		document.body.style.overflow = 'auto';
+	}, []);
 
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -81,7 +87,7 @@ const Navbar = () => {
 						userLoggedIn
 							?
 							<>
-								<li><NavLink to={'/profile'} ><box-icon name='user-circle' className='text-sm text-blue-600'></box-icon></NavLink></li>
+								<li><NavLink to={'/profile'} ><FontAwesomeIcon icon={faCircleUser} /></NavLink></li>
 							</>
 							:
 							<>
