@@ -1,0 +1,122 @@
+.ad-agristock-heading {
+    position: absolute;
+    top: 7%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Lobster', cursive;
+    color: #000000; 
+    font-size: 50px; 
+  }
+  .add-background-container {
+    position: absolute;
+    top: 54%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 540px;  
+    border-radius:15px;
+    background-color: #ffffff;
+    z-index: -1; 
+  }
+  .add-container {
+    position: absolute;
+    width: 380px;
+    height: 390px;
+    padding: 20px;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ede9e9;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: #444753 solid 1px;
+    }
+  .add-head {
+        margin-top: 0;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+.addleb{
+        display: block;
+        height: 30px;
+        border-radius: 8px;
+        text-align: left;
+    
+        }
+
+ .add-in{
+            width: 100%;
+            height: 35px;
+            padding: 5px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+          }
+        
+         
+          .add-radio-container {
+            justify-content: center;
+            margin-bottom: 15px;
+            text-align: center; 
+        }
+        
+        .radio-label {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 30px; 
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .radio-label input[type="radio"] {
+            vertical-align: middle;
+            width: 25px;
+            height: 25px;
+            margin-right: 5px;
+           
+        }
+
+        button.add-sub{
+            width: 110px;
+            height: 37px;
+            padding: 5px;
+            background-color: rgb(165, 235, 168);
+            color: #000000;
+            border: none;
+            border-radius: 18px;
+            border: 1.5px solid #000000;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            font-weight: bold;    
+            cursor: pointer;
+            margin: 20px auto 15px auto;
+            display: block; 
+          }
+        
+         button.add-sub:hover {
+            background-color: #3a5af5;
+          }
+
+          @media only screen and (max-width: 768px) {
+   
+            .ad-agristock-heading {
+               font-size: 40px; 
+               top: 7%;    
+             }
+          
+             .add-background-container {
+               height: 500px;
+             }
+           }
+           @media only screen and (max-width:420px) {
+           .add-container {
+             width: 85%;
+             height: 430px;
+           }
+         
+           .add-background-container {
+           width: 100%;
+           height: 500px;
+         
+         }
+        }
+          
