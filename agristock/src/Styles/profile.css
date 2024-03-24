@@ -1,0 +1,287 @@
+.profileCont {
+    position: relative;
+    margin-top: 13vh;
+    /* width: 80vw; */
+    padding: 0 10vw;
+    /* min-height: calc(100svh - 13vh); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* border: white 1px solid; */
+    padding: 20px;
+    gap: 20px;
+}
+
+.profileDivider{
+    width: 90%;
+    height: 01px;
+    /* width: 1px; */
+    /* height: 100%; */
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.175);
+    /* border: black 0.5px solid; */
+    display: none;
+}
+.profileUserCont > .profileDivider{
+    width: 90%;
+    height: 01px;
+    display: block;
+    /* margin: 20px; */
+    /* width: 1px;
+    height: 100%; */
+    background-color: rgba(0, 0, 0, 0.175);
+    /* border: black 0.5px solid; */
+}
+
+
+
+.profileName {
+    padding: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.profileUserCont {
+    position: relative;
+    /* top: 0; */
+    width: 40vw;
+    min-width: 300px;
+    height: 300px;
+    /* height: 100%; */
+    /* min-height: 300px; */
+    background-color: rgba(255, 255, 255, 0.579);
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    /* border: 1px solid white; */
+
+}
+
+.profileUserDetailsCont {
+    display: flex;
+    align-items: center;
+    height: 50%;
+    /* padding: 20px; */
+}
+.profileText {
+    font-size: 15px;
+    font-weight: 400;
+
+}
+
+.profileImgCont {
+    width: 50vw;
+    height: 50vw;
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 100px;
+
+    border: 1px solid rgba(0, 0, 0, 0.474);
+}
+
+.profileImg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 100px;
+}
+.profileUpdateInfo {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    padding: 10px ;
+    /* background: #00f2ff; */
+    background-color: transparent;
+    border: 1px solid #3d3d3d73;
+    /* border: none; */
+    border-radius: 10px;
+    cursor: pointer;
+    color: black;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* font-weight: 200; */
+}
+.profileWeatherUpdateText {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profilecurrentWeatherCont {
+    height: 50%;
+    width: 100%;
+}
+
+.profileWeatherDataCont {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.profileWeatherData {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 80%;
+    width: 18%;
+}
+
+.profileWeatherData img {
+    width: 60%;
+    display: block;
+    object-fit: contain;
+    height: 100%;
+
+}
+
+.profileHarvestCard {
+    background-color: rgba(255, 255, 255, 0.579);
+    /* width: auto; */
+    height: 300px;
+    padding: 20px;
+    border-radius: 20px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* margin: 0 10px; */
+    /* min-width: 300px; */
+}
+
+.profileHarvestsCont .upcoming {
+    padding: 0 20px;
+    color: white;
+    /* font-size: ; */
+}
+
+.profileHarvestTopCont {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    margin-bottom: 15px;
+}
+.profileHarvestImgCont {
+    position: relative;
+    width: 40%;
+    max-width: 200px;
+    /* height: 200px; */
+    aspect-ratio: 1/1;
+    border-radius: 20px;
+}
+.profileHarvestDetailsCont {
+    width: 50%;
+}
+.profileHarvestImgCont img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+    border: 1px solid rgba(0, 0, 0, 0.474);
+}
+
+.profileHarvestBottomCont {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.harvestBtn {
+    padding: 5px 10px;
+    margin: 0 5px;
+    font-size: 15px;
+    border-radius: 10px;
+    /* font-size: 14px; */
+    color: white;
+}
+
+.harvestUpdate {
+    background-color: #00f2ff;
+    border: 1px solid #001eff;
+    cursor: pointer;
+    color: black;
+}
+.profileCreateHarvests {
+    position: fixed;
+    z-index: 999;
+    right: 70px;
+    bottom: 30px;
+    padding: 10px 20px;
+    background: white;
+    border: 2px solid rgb(218, 218, 218);
+    border-radius: 20px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    transition: all ease 0.2s;
+}
+
+.profileCreateHarvests:hover {
+    bottom: 32px;
+    scale: 1.05;
+    border: 2px solid rgb(93, 93, 93);
+}
+
+.harvestDelete {
+    /* color: red; */
+    background-color: #ff6d6d;
+    border: 1px solid #ff0000;
+    cursor: pointer;
+}
+@media only screen and (max-width: 768px) {
+    .profileCont {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* width: 100%; */
+        /* padding: 0; */
+    }
+    /* .profileUserDetailsCont {
+        flex-direction: row-reverse;
+        align-items: space-evenly;
+        justify-content: flex-start;
+    } */
+    .profileUserCont {
+        /* padding: 0; */
+        height: 300px;
+        min-width: none;
+        width: 90vw;
+    }
+
+    /* .profileHarvestsCont {
+        margin-top: 20px;
+    } */
+    .profileHarvestCard {
+        min-width: none ;
+        width: 90vw;
+        height: auto;
+        margin: 10px 0;
+    }
+    .profileDivider {
+        display: block;
+        /* margin: 20px auto; */
+        margin-top: 10px;
+    }
+
+    .profileCreateHarvests {
+        right: 20px;
+        bottom: 5svh;
+    }
+}

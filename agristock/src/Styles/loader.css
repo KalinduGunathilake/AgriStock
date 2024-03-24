@@ -1,0 +1,26 @@
+/* html {
+    background-color: #ffffff;
+    height: 100vh;
+} */
+
+.loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #ffffff;
+    /* color: brown; */
+}
+
+.loaderGif{
+    width: 30vw;
+    height: auto;
+}
+
+@media only screen and (max-width: 768px) {
+    .loaderGif{
+        width: 60vw;
+    }
+}

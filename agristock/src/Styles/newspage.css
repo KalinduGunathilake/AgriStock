@@ -1,10 +1,11 @@
-
-
 .App {
-    margin-top:5rem;
-    text-align: center;
-  }
+  margin-top:5rem;
+  text-align: center;
+}
+
+.news-container {
   
+<<<<<<< HEAD
   .news-container {
     
     width: 100%;
@@ -57,4 +58,52 @@
     .latestnews{
         margin-top: 7rem;
     }
+=======
+  width: 100%;
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+ 
+  background-color: #fafafa;
+  padding: 5svh;
+  border-radius: 20px;
+}
+
+.news-item {
+  margin: 20px;
+  width: 300px;
+  transition: transform 0.2s ease; /* Add transition for smooth animation */
+  
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+.news-item:hover {
+  transform: scale(1.05); /* Scale up slightly when hovered */
+}
+
+.news-item img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.news-details {
+  padding: 10px;
+}
+
+.news-details h2 {
+  margin-top: 0;
+}
+
+.news-details p {
+  margin-bottom: 0;
+}
+@media screen and (max-width: 768px){
+  .latestnews{
+      margin-top: 7rem;
+  }
+>>>>>>> main
 }

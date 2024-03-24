@@ -1,0 +1,30 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "backend of Agristock",
+  "main": "index.js",
+
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "node index.js",
+    "build": "npm run node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KalinduGunathilake/AgriStock.git"
+  },
+  "author": "Kalindu Gunathilake",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KalinduGunathilake/AgriStock/issues"
+  },
+  "homepage": "https://github.com/KalinduGunathilake/AgriStock#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.1",
+    "mongodb": "^6.5.0",
+    "mongoose": "^8.2.3"
+  }
+}
