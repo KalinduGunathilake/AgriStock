@@ -133,7 +133,7 @@ const CreateHarvest = () => {
                 {/* <h3>{harvestUUIDRef.current}</h3> */}
                 <form onSubmit={handleSubmit} className='createForm'>
                     <div className='createFormInputs'>
-                        <input className='imageInput' type="file" name="image" accept=".png, .jpg, .jpeg" onChange={handleFileChange} required />
+                        <input className='inputField' type="file" name="image" accept=".png, .jpg, .jpeg" onChange={handleFileChange} required />
                         <input className='inputField' type="text" name="cropName" placeholder="Crop Name" onChange={handleChange}  required />
                         <input className='inputField' type="text" name="harvestOwner" placeholder="Name" onChange={handleChange} value={currentUser.displayName ? currentUser.displayName  : ''} required />
                         <input className='inputField' type="text" name="location" placeholder="Location (e.g. street address, city, state, zip)" onChange={handleChange} required />

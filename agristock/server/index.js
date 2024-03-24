@@ -13,6 +13,7 @@ const app = express();
 const port = 5000;
 
 const mongodbDatabaseUrl = "mongodb+srv://agristockadmin:AiIDmWRH1s5LB2Zc@agrsitock-sdgp-se120.ubr3vpr.mongodb.net/agristock?retryWrites=true&w=majority"
+const weatherAPI = "fea19e6c759dda5eec6261a35d687965"
 
 mongoose.connect(mongodbDatabaseUrl, {
     useNewUrlParser: true,
@@ -238,3 +239,22 @@ app.delete('/deleteHarvest', async (req, res) => {
     }
 });
 
+
+app.get('/getweather5days', async (req, res) => {
+
+        const { lat, long } = req.query;
+        // const weatherAPI = "fea19e6c759dda5eec6261a35d687965";
+        const url = `http://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${long}&appid=${weatherAPI}&cnt=5`;
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const weather = await response.json();
+            res.json(weather);
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: error.message });
+        }
+
+})
