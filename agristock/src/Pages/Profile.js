@@ -295,7 +295,7 @@ const Profile = () => {
 						<div className='profileUserCont'>
 							<div className='profileUserDetailsCont'>
 								<div className='profileImgCont'>
-									{/* <img alt='profileImg' className='profileImg' /> */}
+									<img alt='profileImg' className='profileImg' src={currentUser.photoURL}/>
 								</div>
 								<h3 className='profileName'>
 									<p className='profileText'>Welcome,</p>{name}
@@ -308,7 +308,7 @@ const Profile = () => {
 							<div className='profileDivider'></div>
 							<div className='profilecurrentWeatherCont' onClick={() => getLocation()}>
 								{weatherData.length == 0 ?
-									<p>Current Location Weather Information here</p>
+									<p className='profileWeatherUpdateText'>Tap here to get updated weather</p>
 									:
 									<div className='profileWeatherDataCont'>
 										{weatherData.list.map((day, index) => (
@@ -332,7 +332,7 @@ const Profile = () => {
 									{/* <p className='profileText upcoming'>Upcoming Harvests</p> */}
 									{
 										harvests.map((harvest) => (
-											<Link to={`/stocks/${harvest.cropName}/${harvest._id}`} key={harvest._id} className='profileHarvestCard'>
+											<div key={harvest._id} className='profileHarvestCard'>
 												<div className='profileHarvestTopCont'>
 													<div className='profileHarvestImgCont'>
 														<img alt='profileImg' className='profileHarvestImg' src={imageUrls[harvest.uuid]} />
@@ -353,7 +353,7 @@ const Profile = () => {
 													</button>
 												</div>
 												{/* {showUpdateHarvest && <UpdateHarvest harvest={harvests[harvests.length - 1]} setShowUpdateHarvest={setShowUpdateHarvest} />} */}
-											</Link>
+											</div>
 										))
 									}
 								</>

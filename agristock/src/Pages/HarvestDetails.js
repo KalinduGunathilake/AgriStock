@@ -14,6 +14,7 @@ function HarvestDetails() {
 	const [harvestDetails, setHarvestDetails] = useState([]);
 	const [imageUrl, setImageUrl] = useState(null);
 	const [imageName, setImageName] = useState('');
+	const [pricePerKg, setPricePerKg] = useState(0);
 
 	useEffect(() => {
 		document.body.style.overflow = 'auto';
@@ -23,6 +24,7 @@ function HarvestDetails() {
 				if (Array.isArray(data.harvestDetails)) {
 					setHarvestDetails(data.harvestDetails[0]); // Accessing the 'crop' array from the response
 					// showCrops();
+					setPricePerKg(data.harvestDetails[0].pricePerKg.$numberDecimal);
 					setImageName(data.harvestDetails[0].uuid);
 					console.log(data.harvestDetails[0].uuid)
 					console.log("Data Received successfully");
@@ -50,6 +52,12 @@ function HarvestDetails() {
 	// }, [harvestDetails.uuid]);
 
 
+	// useEffect(() => {
+	// 	if(harvestDetails.pricePerKg !== null) {
+
+	// 		setPricePerKg(harvestDetails.pricePerKg.$numberDecimal);
+	// 	}
+	// }, [harvestDetails.pricePerKg.$numberDecimal]);
 	useEffect(() => {
 
 
@@ -114,20 +122,32 @@ function HarvestDetails() {
 					) : (
 						<p>Loading image...</p>
 					)}
-					<div className='harvestDetailsLeftBottomCont'>
-						<div className='harvestDetailsLeftBottomLeftCont'>
+
+				</div>
+				<div className='harvestDetailsRightCont'>
+					<h3 className='harvestDetailsCropName'>{harvestDetails.cropName}</h3>
+					<div className='harvestDetailsRightMiddleCont'>
+						<div className='harvestDetailsRightMiddleLeftCont'>
 							<h3 className='harvestDetailsOwner'>{harvestDetails.harvestOwner}</h3>
 							<p className='harvestDetailsLocation'>{harvestDetails.location}</p>
 							<p className='harvestDetailsContact'>{harvestDetails.contactNumber}</p>
 						</div>
-						<div className={dateDiff(harvestDetails.expectedHarvestDate) < 5 ? 'harvestDetailsLeftBottomRightCont redText' : 'harvestDetailsLeftBottomRightCont'}>
+						<div className={dateDiff(harvestDetails.expectedHarvestDate) < 5 ? 'harvestDetailsRightMiddleRightCont redText' : 'harvestDetailsRightMiddleRightCont'}>
 							<p className='harvestDetailsExpireText'>Expires in</p>
 							<p className='harvestDetailsExpireDate'>{dateDiff(harvestDetails.expectedHarvestDate)} Days</p>
 						</div>
 					</div>
-				</div>
-				<div className='harvestDetailsRightCont'>
-
+					<div className='harvestDetailsRightBottomCont'>
+						<p>Listed On : {new Date(harvestDetails.listedOn).toLocaleDateString('en-GB')}</p>
+						<p>{dateDiff(harvestDetails.expectedHarvestDate) > 0 ?"Expected Harvest Date": "Harvested On"} : {new Date(harvestDetails.expectedHarvestDate).toLocaleDateString('en-GB')}</p>
+						<p>Quantity Available : {harvestDetails.expectedQuantity}kg</p>
+						<p>Price per kg : Rs. {pricePerKg}</p>
+					</div>
+					<div className='harvestDetailsRightContactBtnCont'>
+						<a href={`tel:${harvestDetails.contactNumber}`}>
+							<button className='contactFarmerBtn'>Contact Farmer</button>
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
