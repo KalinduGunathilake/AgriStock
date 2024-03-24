@@ -348,7 +348,7 @@ const Profile = () => {
 												</div>
 												<div className='profileHarvestBottomCont'>
 													<button className='harvestDelete harvestBtn' onClick={() => { deleteHarvest(harvest.uuid) }}>Delete</button>
-													<button className='harvestUpdate harvestBtn' onClick={() => navigate(`/updateharvest/${harvest.uuid}`)} >
+													<button className='harvestUpdate harvestBtn' onClick={() => navigate(`/updateharvest/${harvest._id}`)} >
 														Update
 													</button>
 												</div>
