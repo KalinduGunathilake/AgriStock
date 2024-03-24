@@ -26,9 +26,17 @@ const UpdateProfile = () => {
         <div>
             {/* {currentUser.uid !== userID ? unauthorized() : */}
                 {/* <> */}
-                    UpdateProfile
+                    {/* UpdateProfile */}
                 {/* </> */}
             {/* } */}
+
+            
+
+
+
+
+
+
         </div>
     )
 }

@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Navigate, Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Navigate, Link, useNavigate } from 'react-router-dom'
 import { doSignInWithEmailAndPassword, doSignInWithGoogle } from '../Firebase/auth'
 import { useAuth } from '../Context/AuthContext/authContext'
 import backendURL from '../Config/backendURL'
@@ -8,12 +8,104 @@ import backgroundImage from '../Images/logback.jpg';
 
 const Login = () => {
 
+    // const { userLoggedIn } = useAuth()
+    // const [email, setEmail] = useState('')
+    // const [password, setPassword] = useState('')
+    // const [isSigningIn, setIsSigningIn] = useState(false)
+    // const [errorMessage, setErrorMessage] = useState('')
+    // const { currentUser } = useAuth()
+
+
+    // useEffect(() => {
+    //     if (userLoggedIn) {
+    //         // setUseruid(currentUser.uid)
+    //         // console.log(useruid)
+    //         // console.log(currentUser)
+    //         console.log(currentUser.uid)
+    //         checkUserExists(currentUser.uid)
+    //         // console.log(userLoggedIn)
+    //         // sendDetailsToMongoDB(currentUser)
+    //     }
+    // }, [currentUser])
+    // const onSubmit = async (e) => {
+    //     e.preventDefault()
+    //     if(!isSigningIn) {
+    //         setIsSigningIn(true)
+    //         await doSignInWithEmailAndPassword(email, password)
+    //         // doSendEmailVerification()
+    //     }
+        
+    // }
+
+    // const onGoogleSignIn = (e) => {
+    //     e.preventDefault()
+    //     if (!isSigningIn) {
+    //         setIsSigningIn(true)
+    //         doSignInWithGoogle().catch(err => {
+    //             setIsSigningIn(false)
+    //         })
+    //     }
+
+    // }
+    // const checkUserExists = (uid) => {
+    //     console.log(uid)
+    //     fetch(backendURL + `/checkuser?firebaseID=${uid}`)
+    //         .then(response =>
+    //             response.json()
+    //         )
+    //         .then(exists => {
+    //             // console.log(data)
+    //             if (!exists) {
+    //                 sendDetailsToMongoDB()
+    //                 // navigate('/home')
+    //             } else {
+    //                 console.log("user already exists")
+    //             }
+    //         })
+    //         .catch(err =>
+    //             console.log(err)
+    //         )
+    // }
+
+    // const sendDetailsToMongoDB = async () => {
+
+    //     try {
+    //         await fetch(backendURL + '/createUser', {
+    //             method: 'POST',
+    //             headers: {
+    //               'Content-Type': 'application/json',
+    //             },
+    //             body: JSON.stringify({ firebaseID: currentUser.uid, name: '', harvests: [], role: '', profilepic: '' }),
+    //           })
+    //           .then((response) => {
+    //             console.log("success:", response.ok);
+    //           })
+
+    //     } catch (error) {
+    //         console.error(error);
+    //     }
+    // }
+
     const { userLoggedIn } = useAuth()
+    const navigate = useNavigate()
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [isSigningIn, setIsSigningIn] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
     const { currentUser } = useAuth()
+
+    useEffect(() => {
+        if (userLoggedIn) {
+            // setUseruid(currentUser.uid)
+            // console.log(useruid)
+            // console.log(currentUser)
+            console.log(currentUser.uid)
+            checkUserExists(currentUser.uid)
+            // console.log(userLoggedIn)
+            // sendDetailsToMongoDB(currentUser)
+        }
+    }, [currentUser])
 
     const onSubmit = async (e) => {
         e.preventDefault()
@@ -25,15 +117,33 @@ const Login = () => {
         
     }
 
+    // const onGoogleSignIn = (e) => {
+    //     e.preventDefault()
+    //     if (!isSigningIn) {
+    //         setIsSigningIn(true)
+    //         doSignInWithGoogle().catch(err => {
+    //             setIsSigningIn(false)
+    //         })
+    //     }
+
+    // }
+
     const onGoogleSignIn = (e) => {
         e.preventDefault()
         if (!isSigningIn) {
             setIsSigningIn(true)
-            doSignInWithGoogle().catch(err => {
-                setIsSigningIn(false)
-            })
+            doSignInWithGoogle()
+                .then(() => {
+                    console.log("came to then")
+                    // checkUserExists()
+                })
+                .catch(err => {
+                    setIsSigningIn(false)
+                    console.log("did not pass" + err)
+                })
         }
 
+        //send details to mongodb
     }
     const checkUserExists = (uid) => {
         console.log(uid)
@@ -44,10 +154,13 @@ const Login = () => {
             .then(exists => {
                 // console.log(data)
                 if (!exists) {
-                    sendDetailsToMongoDB()
+                    sendDetailsToMongoDB().then(() => {
+                        navigate('/additionalInfo', { state: { from: '/additionalInfo' } })
+                    })
                     // navigate('/home')
                 } else {
                     console.log("user already exists")
+                    navigate('/home')
                 }
             })
             .catch(err =>
@@ -63,7 +176,7 @@ const Login = () => {
                 headers: {
                   'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ firebaseID: currentUser.uid, name: '', harvests: [], role: '', profilepic: '' }),
+                body: JSON.stringify({ firebaseID: currentUser.uid, name: currentUser.displayName, harvests: [], role: '', profilepic: '' }),
               })
               .then((response) => {
                 console.log("success:", response.ok);

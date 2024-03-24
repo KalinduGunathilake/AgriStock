@@ -187,6 +187,25 @@ app.patch('/updateUser', async (req, res) => {
     }
 });
 
+
+
+app.patch('/updateHarvest', async (req, res) => {
+    const { uuid } = req.query;
+    const updatedFields = req.body;
+    try {
+        const updatedHarvest = await Harvests.findOneAndUpdate({ uuid: uuid }, { $set: updatedFields }, {new: true});
+        if (!updatedHarvest) {
+            return res.status(404).json({ message: 'Harvest not found' });
+        }
+
+        res.status(200).json(updatedHarvest);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+});
+
+
+
 app.patch('/addharvestListingtoFarmer', async (req, res) => {
     const { firebaseID } = req.query;
     const newHarvest = req.body.harvest; // Assuming the client sends a single harvest ID
