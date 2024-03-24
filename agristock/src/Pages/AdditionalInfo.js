@@ -33,37 +33,37 @@ const AdditionalInfo = () => {
             })
                 .then((response) => {
                     console.log("success:", response.ok);
+                    navigate('/profile');
                 })
-                navigate('/profile');
         } catch (error) {
             console.error(error);
         }
 
     }
 
-    const handleSubmit = async (currentUserNew) => {
-        // console.log("ready to send details to mongodb")
-        // console.log(userLoggedIn)
-        // console.log(currentUser.uid)
+    // const handleSubmit = async (currentUserNew) => {
+    //     // console.log("ready to send details to mongodb")
+    //     // console.log(userLoggedIn)
+    //     // console.log(currentUser.uid)
 
-        try {
+    //     try {
 
-            await fetch(backendURL + '/updateUser?firebaseID=' + currentUser.uid, {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(updatedFields),
-            })
-                .then((response) => {
-                    console.log("success:", response.ok);
-                })
+    //         await fetch(backendURL + '/updateUser?firebaseID=' + currentUser.uid, {
+    //             method: 'PATCH',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //             },
+    //             body: JSON.stringify(updatedFields),
+    //         })
+    //             .then((response) => {
+    //                 console.log("success:", response.ok);
+    //             })
 
-        } catch (error) {
-            console.error(error);
-        }
+    //     } catch (error) {
+    //         console.error(error);
+    //     }
 
-    }
+    // }
     return (
         <div>
             <form onSubmit={handleInfoSubmit}>
