@@ -3,7 +3,7 @@ import axios from 'axios';
 // import ObjectID from 'bson-objectid';
 // import ObjectId from 'bson-objectid'
 import { v4 as uuidv4 } from 'uuid';
-import databaseURL from '../Config/backendURL'
+import backendURL from '../Config/backendURL'
 import { ref, uploadBytes } from 'firebase/storage';
 import { imageDB } from '../Firebase/config.js';
 import { useAuth } from '../Context/AuthContext/authContext.jsx';
@@ -48,7 +48,7 @@ const CreateHarvest = () => {
             // const response = await fetch(databaseURL + '/createCrop', harvestData);
             // console.log('Crop created:', response.data);
             // console.log('Data sent to MongoDB successfully!');
-            const response = await fetch(databaseURL + '/createHarvest', {
+            const response = await fetch(backendURL + '/createHarvest', {
                 method: 'post',
                 headers: {
                     'Content-Type': 'application/json',
