@@ -2,6 +2,8 @@
 const bodyParser = require('body-parser');
 const Crops = require('./model/crops.js');
 const Harvests = require('./model/harvests.js');
+const Users = require('./model/users.js');
+const News = require('./model/news.js');
 
 const express = require('express');
 const cors = require('cors');
@@ -77,13 +79,13 @@ app.get('/getharvests', async (req, res) => {
 app.get('/getharvestdetails', async (req, res) => {
     const { harvestID } = req.query;
     if (!harvestID) {
-        return res.status(400).json({ error: 'Crop name is required' });
+        return res.status(400).json({ error: 'Crop id is required' });
     }
 
     try {
         // const harvests = await Harvests.find({ cropName: cropName });
         const harvestDetails = await Harvests.find({ _id: harvestID });
-        res.json({ harvestDetails });
+        res.json({ harvestDetails, harvestID });
     } catch (err) {
         console.log(err);
         res.status(500).json({ error: 'Internal server error' });
@@ -101,8 +103,10 @@ app.get('/getharvestdetails', async (req, res) => {
     
 // })
 
-app.post('/createCrop', async (req, res) => {
+app.post('/createHarvest', async (req, res) => {
     try {
+        // console.log(req.body);
+        console.log("end point called");
         const newHarvest = new Harvests(req.body);
         await newHarvest.save();
         res.status(201).json(newHarvest);
@@ -110,3 +114,127 @@ app.post('/createCrop', async (req, res) => {
         res.status(400).json({ message: error.message });
     }
 });
+
+app.post('/createUser', async (req, res) => {
+    // res.send('Hello World');
+    const { firebaseID } = req.body;
+    try {
+        console.log(firebaseID);
+        // console.log("end point called");
+        const newUser = new Users(req.body);
+        await newUser.save();
+        res.status(201).json(newUser);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+});
+
+app.get ('/getuserdetails', async (req, res) => {
+    const { firebaseId } = req.query;
+    try {
+        const users = await Users.find({firebaseID : firebaseId});
+        const farmersHarvests = await Harvests.find({farmerID : firebaseId});
+        res.json({ users, farmersHarvests });
+    } catch (err) {
+        console.log(err);
+    }
+
+    // try {
+    //     const farmersHarvets = await Harvests.find({farmerID : firebaseId});
+    //     res.json.add({ farmersHarvets });
+    // } catch (err) {
+    //     console.log(err);
+    // }
+})
+
+app.get ('/checkuser', async (req, res) => {
+    const { firebaseID } = req.query;
+    try {
+        // console.log(firebaseID)
+        const user = await Users.find({firebaseID : firebaseID});
+        // res.json(!!user);
+        // res.json(user);
+        if (user.length != 0) {
+            // console.log("User has logged in before with this email")
+            res.json(true);
+        } else {
+            // console.log("User has not logged in before with this email")
+            res.json(false);
+        }
+    }catch (err) {
+        console.log(err);
+    }
+    // res.send('Hello World');
+})
+
+
+app.patch('/updateUser', async (req, res) => {
+    // const userId = req.params.id;
+    const updatedFields = req.body;
+    // res.send(updatedFields);
+    const { firebaseID } = req.query;
+    try {
+        // const updatedUser = await Users.find(firebaseID, updatedFields, { new: true });
+        const updatedUser = await Users.findOneAndUpdate({firebaseID : firebaseID}, { $set: updatedFields }, {new: true});
+        if (!updatedUser) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        res.status(200).json(updatedUser);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+});
+
+app.patch('/addharvestListingtoFarmer', async (req, res) => {
+    const { firebaseID } = req.query;
+    const newHarvest = req.body.harvest; // Assuming the client sends a single harvest ID
+
+    try {
+        const updatedUser = await Users.findOneAndUpdate(
+            { firebaseID: firebaseID }, // Filter
+            { $push: { harvests: newHarvest } }, // Update using $push
+            { new: true } // Options
+        );
+
+        if (!updatedUser) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        res.status(200).json(updatedUser);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+});
+
+app.get('/getnews', async (req, res) => {
+    try {
+        const news = await News.find();
+        res.json(news);
+    } catch (err) {
+        console.log(err);
+    }
+})
+
+
+
+app.delete('/deleteHarvest', async (req, res) => {
+    const { uuid } = req.query;
+
+    try {
+        const deletedHarvest = await Harvests.findOneAndDelete({ uuid: uuid });
+
+        if (!deletedHarvest) {
+            return res.status(404).json({ message: 'Harvest not found' });
+        }
+        await Users.findOneAndUpdate(
+            { harvests: uuid }, // Filter
+            { $pull: { harvests: uuid } }, // Update using $pull
+        );
+
+        res.status(200).json({ message: 'Harvest successfully deleted' });
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+});
+
