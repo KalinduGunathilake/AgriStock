@@ -1,10 +1,69 @@
-.updateCreateFormInputs{
-    margin-top: 13svh;
+.updateHarvestCont {
     width: 100%;
+    padding: 0 20px;
+}
+.updateForm {
+    width: 100%;
+    margin-top: 13svh;
+    height: calc(100svh - (13svh + 20px));
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.942);
+    border-radius: 20px;
+
+}
+
+.updateCreateFormInputs{
+    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    /* align-items: center; */
-    /* justify-content: center; */
+    gap: 10px;
+
+}
+.inputCont {
+    width: 100%;
+    max-width:40vw;
+    height: auto;
+    /* padding: 5px; */
+
+}
+
+.inputCont > p {
+    font-size: 15px;
+    padding: 5px 10px;
+}
+.updateinputField {
+    width: 100%;
+    max-width:40vw;
+    height: 45px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid #0000001a;
+    padding: 5px 10px;
+    box-shadow: 0 5px 5px #00000018;
+    background-color: white;
+}
+
+
+.submitButton {
+    width: 150px;
+    /* margin-top: 20px; */
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid #0000001a;
+    margin: 25px 10px 0 10px;
+    box-shadow: 0 5px 5px #00000018;
+    background-color: white;
+    transition: all ease 0.2s;
+}
+
+.submitButton:hover {
+    scale: 1.05;
+}
+.submitButton:active {
+    scale: 0.95;
 }
