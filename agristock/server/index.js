@@ -262,7 +262,6 @@ app.delete('/deleteHarvest', async (req, res) => {
 app.get('/getweather5days', async (req, res) => {
 
         const { lat, long } = req.query;
-        // const weatherAPI = "fea19e6c759dda5eec6261a35d687965";
         const url = `http://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${long}&appid=${weatherAPI}&cnt=5`;
         try {
             const response = await fetch(url);

@@ -47,21 +47,56 @@ const UpdateHarvest = () => {
 	}, [])
 
 
+	// const [harvestData, setHarvestData] = useState({
+	// 	uuid: harvest.uuid,
+	// 	cropName: harvest.cropName,
+	// 	harvestOwner: currentUser.displayName ? currentUser.displayName : '',
+	// 	location: harvest.location,
+	// 	contactNumber: harvest.contactNumber,
+	// 	listedOn: harvest.listedOn,
+	// 	expectedHarvestDate: harvest.expectedHarvestDate,
+	// 	pricePerKg: harvest.pricePerKg,
+	// 	expectedQuantity: harvest.expectedQuantity,
+	// 	img: '',
+	// 	farmerID: currentUser.uid,
+	// });
+	// const handleChange = (e) => {
+	// 	setHarvestData({ ...harvestData, [e.target.name]: e.target.value });
+	// };
 	const [harvestData, setHarvestData] = useState({
-		uuid: harvest.uuid,
-		cropName: harvest.cropName,
+		uuid: '',
+		cropName: '',
 		harvestOwner: currentUser.displayName ? currentUser.displayName : '',
-		location: harvest.location,
-		contactNumber: harvest.contactNumber,
-		listedOn: harvest.listedOn,
-		expectedHarvestDate: harvest.expectedHarvestDate,
-		pricePerKg: harvest.pricePerKg,
-		expectedQuantity: harvest.expectedQuantity,
+		location: '',
+		contactNumber: '',
+		listedOn: '',
+		expectedHarvestDate: '',
+		pricePerKg: 0,
+		expectedQuantity: '',
 		img: '',
 		farmerID: currentUser.uid,
 	});
+
+	useEffect(() => {
+		setHarvestData(prevData => ({
+			...prevData,
+			uuid: harvest.uuid || '',
+			cropName: harvest.cropName || '',
+			location: harvest.location || '',
+			contactNumber: harvest.contactNumber || '',
+			listedOn: harvest.listedOn || '',
+			expectedHarvestDate: harvest.expectedHarvestDate ? new Date(harvest.expectedHarvestDate).toISOString().split('T')[0] : '',
+			pricePerKg: parseFloat(harvest.pricePerKg?.$numberDecimal) || 0,
+			expectedQuantity: harvest.expectedQuantity || '',
+		}));
+	}, [harvest]);
+
 	const handleChange = (e) => {
-		setHarvestData({ ...harvestData, [e.target.name]: e.target.value });
+		const { name, value } = e.target;
+		setHarvestData(prevData => ({
+			...prevData,
+			[name]: value,
+		}));
 	};
 
 	const handleSubmit = async (e) => {
@@ -70,28 +105,28 @@ const UpdateHarvest = () => {
 		fetch(`${backendURL}/updateHarvest?uuid=${harvest.uuid}`, {
 			method: 'PATCH',
 			headers: {
-			  'Content-Type': 'application/json', // Specify content type as JSON
+				'Content-Type': 'application/json', // Specify content type as JSON
 			},
 			body: JSON.stringify(harvestData), // Convert JavaScript object to JSON string
-		  })
-		  .then(response => {
-			if (response.ok) {
-			  return response.json(); // If the response is successful, parse JSON
-			}
-			throw new Error('Network response was not ok.'); // If response is not ok, throw an error
-		  })
-		  .then(data => {
-			handleImageUpload()
-			setTimeout(() => {
-				alert('Harvest updated successfully!');
-				navigate(-1);
-			}, 1000);
+		})
+			.then(response => {
+				if (response.ok) {
+					return response.json(); // If the response is successful, parse JSON
+				}
+				throw new Error('Network response was not ok.'); // If response is not ok, throw an error
+			})
+			.then(data => {
+				handleImageUpload()
+				setTimeout(() => {
+					alert('Harvest updated successfully!');
+					navigate(-1);
+				}, 1000);
 
-		  })
-		  .catch(error => {
-			// Handle errors
-			console.error('There was a problem with the fetch operation:', error);
-		  });
+			})
+			.catch(error => {
+				// Handle errors
+				console.error('There was a problem with the fetch operation:', error);
+			});
 	};
 	const handleImageUpload = () => {
 		if (image) {
@@ -100,7 +135,6 @@ const UpdateHarvest = () => {
 			const storageRef = ref(imageDB, `images/${harvest.uuid}`);
 			uploadBytes(storageRef, image).then(() => {
 				console.log('Image uploaded successfully!');
-				// You can perform additional tasks after successful upload
 			}).catch((error) => {
 				console.error('Error uploading image: ', error);
 			});
@@ -123,36 +157,72 @@ const UpdateHarvest = () => {
 
 	return (
 		<div>
-			UpdateHarvest
+			{/* UpdateHarvest */}
 			{harvest ?
-				<>
-					{/* <p>{harvest.uuid ? harvest.uuid : ''}</p>
-          <p>{harvest.harvestOwner}</p>
-          <p>{harvest.cropName}</p> */}
+				<div className='updateHarvestCont'>
+
 					<Navbar />
-					<form onSubmit={handleSubmit} className='createForm'>
+					<form onSubmit={handleSubmit} className='updateForm'>
 						<div className='updateCreateFormInputs'>
-							<input className='inputField' type="file" name="image" accept=".png, .jpg, .jpeg" onChange={handleFileChange} required />
-							<input className='inputField' type="text" name="cropName" placeholder="Crop Name" value={harvest.cropName} readOnly required />
-							<input className='inputField' type="text" name="harvestOwner" placeholder="Name" onChange={handleChange} value={currentUser.displayName ? currentUser.displayName : ''} required />
-							<input className='inputField' type="text" name="location" placeholder="Location (e.g. street address, city, state, zip)" onChange={handleChange} value={harvest.location} required />
-							<input className='inputField' type="text" name="contactNumber" placeholder="Contact Number" onChange={handleChange} value={harvest.contactNumber} required />
-							{/* <input className='inputField' type="hidden" name="listedOn" value={new Date().toISOString()} onChange={handleChange} /> */}
-							<input className='inputField' type="date" name="expectedHarvestDate" placeholder="Expected Harvest Date"  onChange={(e) => handleChange(e)} required />
-							<input className='inputField' type="number" name="pricePerKg" placeholder="Price Per Kg" onChange={handleChange} value={pricePerKg} required />
-							<input className='inputField' type="text" name="expectedQuantity" placeholder="Expected Quantity" onChange={handleChange} value={harvest.expectedQuantity} required />
+							
+							<div className='inputCont'>
+								<p>Upload Image</p>
+								<input className='updateinputField' type="file" name="image" accept=".png, .jpg, .jpeg" onChange={handleFileChange} />
+							</div>
+
+							<div className='inputCont'>
+								<p>Crop Name</p>
+								<input className='updateinputField' type="text" name="cropName" placeholder="Crop Name" value={harvestData.cropName} readOnly required />
+							</div>
+
+							<div className='inputCont'>
+								<p>Name</p>
+								<input className='updateinputField' type="text" name="harvestOwner" placeholder="Name" value={harvestData.harvestOwner} onChange={handleChange} required />
+							</div>
+
+							<div className='inputCont'>
+								<p>Location</p>
+								<input className='updateinputField' type="text" name="location" placeholder="Location" value={harvestData.location} onChange={handleChange} required />
+							</div>
+
+							<div className='inputCont'>
+								<p>Contact Number</p>
+								<input className='updateinputField' type="text" name="contactNumber" placeholder="Contact Number" value={harvestData.contactNumber} onChange={handleChange} required />
+							</div>
+
+							<div className='inputCont'>
+								<p>Expected Harvest Date</p>
+								<input className='updateinputField' type="date" name="expectedHarvestDate" placeholder="Expected Harvest Date" value={harvestData.expectedHarvestDate} onChange={handleChange} required />
+							</div>
+
+							<div className='inputCont'>
+								<p>Price Per Kg</p>
+								<input className='updateinputField' type="number" name="pricePerKg" placeholder="Price Per Kg" value={harvestData.pricePerKg} onChange={handleChange} required />
+							</div>
+
+							<div className='inputCont'>
+								<p>Expected Quantity</p>
+								<input className='updateinputField' type="text" name="expectedQuantity" placeholder="Expected Quantity" value={harvestData.expectedQuantity} onChange={handleChange} required />
+							</div>
+
+							{/*<input className='updateinputField' type="file" name="image" accept=".png, .jpg, .jpeg" onChange={handleFileChange} />
+-							<input className='updateinputField' type="text" name="cropName" placeholder="Crop Name" value={harvestData.cropName} readOnly required />
+-							<input className='updateinputField' type="text" name="harvestOwner" placeholder="Name" value={harvestData.harvestOwner} onChange={handleChange} required />
+-							<input className='updateinputField' type="text" name="location" placeholder="Location" value={harvestData.location} onChange={handleChange} required />
+-							<input className='updateinputField' type="text" name="contactNumber" placeholder="Contact Number" value={harvestData.contactNumber} onChange={handleChange} required />
+-							<input className='updateinputField' type="date" name="expectedHarvestDate" placeholder="Expected Harvest Date" value={harvestData.expectedHarvestDate} onChange={handleChange} required />
+-							<input className='updateinputField' type="number" name="pricePerKg" placeholder="Price Per Kg" value={harvestData.pricePerKg} onChange={handleChange} required />
+-							<input className='updateinputField' type="text" name="expectedQuantity" placeholder="Expected Quantity" value={harvestData.expectedQuantity} onChange={handleChange} required /> */}
 						</div>
-						{/* <input type="hidden" name="farmerID" value={useAuth().currentUser.uid} /> Hidden input for _id */}
 
 						<button type="submit" className='submitButton'>Submit</button>
 					</form>
-				</>
+				</div>
 				:
 				<>
 					no info found
 				</>
 			}
-			{/* <button */}
 		</div>
 
 	)
