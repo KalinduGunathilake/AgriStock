@@ -18,6 +18,7 @@ import Profile from './Pages/Profile';
 import AdditionalInfo from './Pages/AdditionalInfo';
 import UpdateHarvest from './Components/UpdateHarvest';
 import UpdateProfile from './Components/UpdateProfile';
+import NewsD from './Pages/NewsD';
 
 
 // const userLoggedIn = getUserLoggedIn();
@@ -85,6 +86,10 @@ const router = createBrowserRouter([
     element:<AdditionalInfo /> 
 
   },
+  {
+    path: "newsDetails",
+    element: <NewsD/>
+  }
 
   
 ]);

@@ -1,6 +1,10 @@
-.NewsD-App {
+.newsD{
+  margin-top: 13svh;
+}
+
+.newsD-App {
     text-align: center;
-    font-size: x-large;
+    font-size: 20px;
   }
   
   .newsD-container {
