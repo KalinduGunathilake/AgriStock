@@ -43,31 +43,6 @@ const AdditionalInfo = () => {
 
     }
 
-
-    // const handleSubmit = async (currentUserNew) => {
-    //     // console.log("ready to send details to mongodb")
-    //     // console.log(userLoggedIn)
-    //     // console.log(currentUser.uid)
-
-    //     try {
-
-
-    //         await fetch(backendURL + '/updateUser?firebaseID=' + currentUser.uid, {
-    //             method: 'PATCH',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify(updatedFields),
-    //         })
-    //             .then((response) => {
-    //                 console.log("success:", response.ok);
-    //             })
-
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-
-    // }
     return (
         <div>
             <h1 className="ad-agristock-heading">AgriStock</h1>

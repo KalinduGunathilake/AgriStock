@@ -131,11 +131,11 @@ const Register = () => {
                         <button
                             type="submit"
                             disabled={isRegistering}
-                            className={`signup ${isRegistering ? 'bg-gray-300 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700 hover:shadow-xl transition duration-300'}`}>
+                            className={`signup ${isRegistering ? 'TT' : 'FF'}`}>
                             {isRegistering ? 'Signing Up...' : 'Sign Up'}
                         </button>
                         <div className="re-sign-in-container">
-                            <button disabled={isSigningIn} onClick={(e) => { onGoogleSignIn(e) }} className={`re-google-signin ${isSigningIn ? 'cursor-not-allowed' : 'hover:bg-gray-100 transition duration-300 active:bg-gray-100'}`}>{isSigningIn ? 'Signing In...' : 'Continue with Google'}</button>
+                            <button disabled={isSigningIn} onClick={(e) => { onGoogleSignIn(e) }} className={`re-google-signin ${isSigningIn ? 'Tt' : 'Ff'}`}>{isSigningIn ? 'Signing In...' : 'Continue with Google'}</button>
                         </div>
                         <p className="re-text"> Already have an account?<a href=" /login" className= "login-link"> Sign-in </a></p>
                     </form>
