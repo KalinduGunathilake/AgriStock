@@ -365,7 +365,7 @@ const Profile = () => {
 						{/* </div> */}
 					</div>
 					{/* </div> */}
-					<button onClick={() => { doSignOut().then(() => { navigate('/') }) }}>logout</button>
+					<button onClick={() => { doSignOut().then(() => { navigate('/') }) }} className='pr-logout'>logout</button>
 				</>
 			}
 		</div >
