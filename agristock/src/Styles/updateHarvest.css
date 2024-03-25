@@ -5,13 +5,15 @@
 .updateForm {
     width: 100%;
     margin-top: 13svh;
-    height: calc(100svh - (13svh + 20px));
+    min-height: calc(100svh - (13svh + 20px));
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.942);
     border-radius: 20px;
+    padding: 20px 0;
+    margin-bottom: 20px;
 
 }
 
@@ -66,5 +68,30 @@
 }
 .submitButton:active {
     scale: 0.95;
+}
+
+@media only screen and (max-width: 768px) {
+    /* .updateForm {
+        margin-top: 10svh;
+    } */
+    /* .inputCont {
+        width: 100%;
+    }
+    .updateCreateFormInputs {
+        flex-direction: column;
+        width: 100vw;
+    } */
+    .updateCreateFormInputs {
+        flex-direction: column;
+        /* width: 90vw; */
+    }
+
+    .updateCreateFormInputs .updateinputField {
+        max-width: 80vw;
+    }
+    .inputCont {
+        max-width: none;
+    }
+
 }
 

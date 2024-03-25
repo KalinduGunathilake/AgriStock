@@ -42,9 +42,9 @@ const Home = () => {
         </div>
         
       </div>
-      <div className="additionalContent" >
+      {/* <div className="additionalContent" >
           
-        </div>
+        </div> */}
       {/* <Footer /> */}
     </div>
   );

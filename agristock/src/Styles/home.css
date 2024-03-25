@@ -1,7 +1,8 @@
 
 
 .heroCont {
-    height: 100svh;
+    margin-top: 13svh;
+    height: calc(100svh - 13svh);
     width: 100%;
     background-color: var(--homebody-color);
     padding: 5svh;
