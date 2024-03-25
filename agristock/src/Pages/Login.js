@@ -8,83 +8,7 @@ import backgroundImage from '../Images/logback.jpg';
 
 const Login = () => {
 
-    // const { userLoggedIn } = useAuth()
-    // const [email, setEmail] = useState('')
-    // const [password, setPassword] = useState('')
-    // const [isSigningIn, setIsSigningIn] = useState(false)
-    // const [errorMessage, setErrorMessage] = useState('')
-    // const { currentUser } = useAuth()
-
-
-    // useEffect(() => {
-    //     if (userLoggedIn) {
-    //         // setUseruid(currentUser.uid)
-    //         // console.log(useruid)
-    //         // console.log(currentUser)
-    //         console.log(currentUser.uid)
-    //         checkUserExists(currentUser.uid)
-    //         // console.log(userLoggedIn)
-    //         // sendDetailsToMongoDB(currentUser)
-    //     }
-    // }, [currentUser])
-    // const onSubmit = async (e) => {
-    //     e.preventDefault()
-    //     if(!isSigningIn) {
-    //         setIsSigningIn(true)
-    //         await doSignInWithEmailAndPassword(email, password)
-    //         // doSendEmailVerification()
-    //     }
-        
-    // }
-
-    // const onGoogleSignIn = (e) => {
-    //     e.preventDefault()
-    //     if (!isSigningIn) {
-    //         setIsSigningIn(true)
-    //         doSignInWithGoogle().catch(err => {
-    //             setIsSigningIn(false)
-    //         })
-    //     }
-
-    // }
-    // const checkUserExists = (uid) => {
-    //     console.log(uid)
-    //     fetch(backendURL + `/checkuser?firebaseID=${uid}`)
-    //         .then(response =>
-    //             response.json()
-    //         )
-    //         .then(exists => {
-    //             // console.log(data)
-    //             if (!exists) {
-    //                 sendDetailsToMongoDB()
-    //                 // navigate('/home')
-    //             } else {
-    //                 console.log("user already exists")
-    //             }
-    //         })
-    //         .catch(err =>
-    //             console.log(err)
-    //         )
-    // }
-
-    // const sendDetailsToMongoDB = async () => {
-
-    //     try {
-    //         await fetch(backendURL + '/createUser', {
-    //             method: 'POST',
-    //             headers: {
-    //               'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify({ firebaseID: currentUser.uid, name: '', harvests: [], role: '', profilepic: '' }),
-    //           })
-    //           .then((response) => {
-    //             console.log("success:", response.ok);
-    //           })
-
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // }
+   
 
     const { userLoggedIn } = useAuth()
     const navigate = useNavigate()
@@ -116,17 +40,6 @@ const Login = () => {
         }
         
     }
-
-    // const onGoogleSignIn = (e) => {
-    //     e.preventDefault()
-    //     if (!isSigningIn) {
-    //         setIsSigningIn(true)
-    //         doSignInWithGoogle().catch(err => {
-    //             setIsSigningIn(false)
-    //         })
-    //     }
-
-    // }
 
     const onGoogleSignIn = (e) => {
         e.preventDefault()
@@ -204,11 +117,11 @@ const Login = () => {
             <input type="email" autoComplete='email'  className ="log-in" required value={email} onChange={(e) => { setEmail(e.target.value) }} />
             <label htmlFor="password"className='logleb'>Password:</label>
             <input type="password"autoComplete='current-password'  className ="log-in" required value={password} onChange={(e) => { setPassword(e.target.value) }} />
-            {errorMessage && (<span className='text-red-600 font-bold'>{errorMessage}</span>)}
-            <button type="submit"disabled={isSigningIn} className={`login ${isSigningIn ? 'bg-gray-300 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700 hover:shadow-xl transition duration-300'}`} >{isSigningIn ? 'Signing In...' : 'Login'} </button>
+            {errorMessage && (<span className='Errormg'>{errorMessage}</span>)}
+            <button type="submit"disabled={isSigningIn} className={`login ${isSigningIn ? 'TT' : 'FF'}`} >{isSigningIn ? 'Signing In...' : 'Login'} </button>
             
             <div className="sign-in-container">
-            <button disabled={isSigningIn} onClick={(e) => { onGoogleSignIn(e) }}className={`google-signin ${isSigningIn ? 'cursor-not-allowed' : 'hover:bg-gray-100 transition duration-300 active:bg-gray-100'}`}>
+            <button disabled={isSigningIn} onClick={(e) => { onGoogleSignIn(e) }}className={`google-signin ${isSigningIn ? 'Tt' : 'Ff'}`}>
              {isSigningIn ? 'Signing In...' : 'Sign in with Google'}</button>
             </div>
             <p className="text">Don't have an account? <a href="/register-now" className="register-now"> Register Now</a></p>
