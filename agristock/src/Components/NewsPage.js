@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import '../Styles/newspage.css'
 import backendURL from '../Config/backendURL';
+import { Link } from 'react-router-dom';
 
 function NewsPage() {
   const [news, setNews] = useState([])
@@ -37,7 +38,7 @@ function NewsPage() {
   return (
     <div className="App">
       <h1 className='latestnews'>Latest News</h1>
-      <div className="news-container">
+      <Link to="/newsDetails" className="news-container">
         {news.map((article, index) => (
           <div className="news-item" key={index}>
             <img src={article.poster} alt="News Poster" />
@@ -47,7 +48,7 @@ function NewsPage() {
             </div>
           </div>
         ))}
-      </div>
+      </Link>
     </div>
   );
 }
