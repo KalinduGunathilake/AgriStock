@@ -3,12 +3,12 @@
   "name": "AgriStock",
   "icons": [
     {
-      "src": "agristockIcon.png",
+      "src": "agristockIconstroke.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "agristockIcon.png",
+      "src": "agristockIconstroke1.png",
       "type": "image/png",
       "sizes": "400x400"
     }
