@@ -139,13 +139,6 @@ app.get ('/getuserdetails', async (req, res) => {
     } catch (err) {
         console.log(err);
     }
-
-    // try {
-    //     const farmersHarvets = await Harvests.find({farmerID : firebaseId});
-    //     res.json.add({ farmersHarvets });
-    // } catch (err) {
-    //     console.log(err);
-    // }
 })
 
 app.get ('/checkuser', async (req, res) => {
