@@ -15,7 +15,7 @@ const NewsD = () => {
     <div className='newsD'>
       <Navbar />
       <div className="newsD-App">
-        <h1 className='latestnews'>latest News</h1>
+        <h1 className='latestnews'>Latest News</h1>
         <div className="newsD-container">
           {news.map((article, index) => (
             <div className="newsD-item" key={index}>
