@@ -142,6 +142,7 @@
 .profilecurrentWeatherCont {
     height: 50%;
     width: 100%;
+    user-select: none;
 }
 
 .profileWeatherDataCont {
