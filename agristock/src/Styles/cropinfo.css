@@ -105,8 +105,9 @@
   background-color: rgb(245, 245, 245);
   border-radius: 20px;
   margin: 20px;
-  box-shadow: 0 0 30px #055a32; 
-  border: 1px solid rgb(2, 121, 18);
+  /* box-shadow: 0 5px 20px #055a323e;  */
+  /* border: 1px solid rgb(1, 169, 23); */
+  transition: all 0.2s ease;
 }
 
 .cropItem img {
@@ -120,7 +121,10 @@
 
 .cropItem:hover {
   cursor: pointer;
-  transform: scale(1.1);
+  transform: scale(1.03);
+}
+.cropItem:active {
+  transform: scale(0.97);
 }
 
 @media only screen and (max-width: 768px) {
