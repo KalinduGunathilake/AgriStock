@@ -335,7 +335,7 @@ const Profile = () => {
 											<div key={harvest._id} className='profileHarvestCard'>
 												<div className='profileHarvestTopCont'>
 													<div className='profileHarvestImgCont'>
-														<img alt='profileImg' className='profileHarvestImg' src={imageUrls[harvest.uuid]} />
+														<img alt='harvestImg' className='profileHarvestImg' src={imageUrls[harvest.uuid]} />
 													</div>
 													<div className='profileHarvestDetailsCont'>
 														{harvest.cropName} <br />
@@ -365,7 +365,7 @@ const Profile = () => {
 						{/* </div> */}
 					</div>
 					{/* </div> */}
-					<button onClick={() => { doSignOut().then(() => { navigate('/') }) }}>logout</button>
+					<div className='logoutbtnCont'><button onClick={() => { doSignOut().then(() => { navigate('/') }) }} className='profileLogoutBtn'>Logout</button></div>
 				</>
 			}
 		</div >
