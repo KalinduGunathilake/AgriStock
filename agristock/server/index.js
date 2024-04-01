@@ -34,7 +34,7 @@ connection.once('open', () => {
 
 app.get('/', (req, res) => {
     res.send('Hello World');
-    console.log(res);
+    // console.log(res);
 })
 
 app.get('/getcrops', async(req, res) => {
@@ -166,10 +166,10 @@ app.patch('/updateUser', async (req, res) => {
     // const userId = req.params.id;
     const updatedFields = req.body;
     // res.send(updatedFields);
-    const { firebaseID } = req.query;
+    const { id } = req.query;
     try {
         // const updatedUser = await Users.find(firebaseID, updatedFields, { new: true });
-        const updatedUser = await Users.findOneAndUpdate({firebaseID : firebaseID}, { $set: updatedFields }, {new: true});
+        const updatedUser = await Users.findOneAndUpdate({firebaseID : id}, { $set: updatedFields }, {new: true});
         if (!updatedUser) {
             return res.status(404).json({ message: 'User not found' });
         }
@@ -178,6 +178,8 @@ app.patch('/updateUser', async (req, res) => {
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
+    // res.status(200).json({updatedFields, id});
+    // res.send(updatedFields, id);
 });
 
 
