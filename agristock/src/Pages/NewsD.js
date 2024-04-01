@@ -16,25 +16,27 @@ const NewsD = () => {
       <Navbar />
       <div className="newsD-App">
         <h1 className='latestnews'>Latest News</h1>
-        <div className="newsD-container">
-          {news.map((article, index) => (
-            <div className="newsD-item" key={index}>
-              <div className="newsD-image-container">
-                <img src={article.poster} alt="News Poster" />
-              </div>
-              <div className="n-details-container">
-                <div className="newsD-details-h2">
-                  <h2>{article.title}</h2>
+        
+          <div className="newsD-container">
+            {news.map((article, index) => (
+             <div className="newsD-item" key={index}>
+               <div className="newsD-image-container">
+                  <img src={article.poster} alt="News Poster" />
                 </div>
-                <div className="newsD-details-p">
-                  <p>{article.description}</p>
+                <div className="n-details-container">
+                  <div className="newsD-details-h2">
+                    <h2>{article.title}</h2>
+                  </div>
+                  <div className="newsD-details-p">
+                    <p>{article.description}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+         </div>
+       
       </div>
-    </div>
+    </div>  
 
 
   );
