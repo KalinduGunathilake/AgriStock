@@ -13,7 +13,7 @@ body {
 
 .cr-create-container{
   width: 440px;
-  height: 470px;
+  height: 480px;
   padding-top: 10px;
   padding-left: 25px;
   padding-right: 25px;
@@ -124,6 +124,15 @@ background-color: #3e57f5;
 .login-link:hover{
   color:#3e57f5;  
 }
+
+.text-red-600 {
+  color: #e53e3e; 
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
 
 
 @media only screen and (max-width: 768px) {
