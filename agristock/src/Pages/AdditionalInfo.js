@@ -26,7 +26,7 @@ const AdditionalInfo = () => {
 
         try {
 
-            await fetch(backendURL + '/updateUser?firebaseID=' + currentUser.uid, {
+            await fetch(backendURL + '/updateUser?id=' + currentUser.uid, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
