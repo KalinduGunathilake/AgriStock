@@ -168,7 +168,6 @@ app.patch('/updateUser', async (req, res) => {
     // res.send(updatedFields);
     const { id } = req.query;
     try {
-        // const updatedUser = await Users.find(firebaseID, updatedFields, { new: true });
         const updatedUser = await Users.findOneAndUpdate({firebaseID : id}, { $set: updatedFields }, {new: true});
         if (!updatedUser) {
             return res.status(404).json({ message: 'User not found' });
@@ -178,8 +177,7 @@ app.patch('/updateUser', async (req, res) => {
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
-    // res.status(200).json({updatedFields, id});
-    // res.send(updatedFields, id);
+
 });
 
 
